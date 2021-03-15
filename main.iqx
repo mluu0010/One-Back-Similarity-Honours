@@ -31,8 +31,8 @@ FILL IN
 *******************************************************************************************************************
 *******************************************************************************************************************
 <include>
-/file = "calibration_main.iqx"
 /file = "instructions.iqx"
+/file = "calibration_main.iqx"
 /file = "circle_locations.iqx"
 /file = "practice.iqx"
 /file = "trial_types.iqx"
@@ -202,7 +202,7 @@ FILL IN
 
 <expt main>
 / preinstructions = (start)
-/ blocks = [1 = consent; 2 = calibration; 3 = instructions; 4-12 = practice; 13 = end_practice; 14-266 = experiment; 267 = followup]
+/ blocks = [1 = consent; 2= calibration; 3 = instructions; 4-12 = practice; 13 = end_practice; 14-266 = experiment; 267 = followup]
 / postinstructions = (end)
 </expt>
 

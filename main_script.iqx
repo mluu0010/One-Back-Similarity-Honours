@@ -1,0 +1,225 @@
+﻿********************************************************************************
+********************************************************************************
+One Back Colour Similarity Experiment
+
+By: Matthew Lu
+Created: 11/03/2021
+********************************************************************************
+********************************************************************************
+Instructions
+********************************************************************************
+********************************************************************************
+<htmlpage overview>
+/ file = "experiment_overview.html"
+</htmlpage>
+
+<htmlpage consent>
+/ file = "consent_form.html"
+</htmlpage>
+
+********************************************************************************
+********************************************************************************
+Include
+********************************************************************************
+********************************************************************************
+<include>
+/file = "response.iqx"
+/file = "survey.iqx"
+</include>
+
+********************************************************************************
+********************************************************************************
+Initialised Constants
+********************************************************************************
+********************************************************************************
+<values>
+/response_time = 0
+/fixationduration = 1000
+/stimulusSOA = 0 
+/stimuluscolour = ""
+/est_stimulusSOA = 0
+/timeout = 1250
+/trial_number_practice = 0
+/number_of_patch_practice = 9
+</values>
+
+********************************************************************************
+********************************************************************************
+
+Defaults
+********************************************************************************
+********************************************************************************
+<defaults>
+/canvasaspectratio = (16,9)
+/screencolor = (127, 127, 127)
+</defaults>
+
+********************************************************************************
+********************************************************************************
+Data
+********************************************************************************
+********************************************************************************
+
+*************
+*************
+build:							Inquisit build..
+date, time, subject, group:		date and time script was run with the current subject/groupnumber 
+blockcode, blocknum:			the name and number of the current block
+trialcode, trialnum: 			the name and number of the currently recorded trial
+									(Note: not all trials that are run might record data) 
+stimulusitem:					the presented stimuli in order of trial presentation
+response:						the participant's response
+correct:						the correctness of the response (1 = correct; 0 = incorrect)
+latency: 						the response latency (in ms)
+*************
+*************
+
+<data>
+/file = "one_back_colour.iqdat"
+/columns = [build, date, time, subject, group, blockcode, blocknum, trialcode, trialnum, stimulusonset, 
+response, latency, values.similarity, values.stimuluscolour, values.response_time, values.stimulusSOA, values.est_stimulusSOA]
+/separatefiles = true
+</data>
+********************************************************************************
+********************************************************************************
+Stimuli
+********************************************************************************
+********************************************************************************
+<list colours>
+/ items = (shape.circle_1, shape.circle_2, shape.circle_3, shape.circle_4, shape.circle_5, shape.circle_6, shape.circle_7, shape.circle_8, shape.circle_9)
+/ itemprobabilities = uniform
+/ poolsize = (243)
+/ selectionrate = always
+/ resetinterval = 1
+</list>
+
+<text fixation_cross>
+	/ items = ("+")
+	/ vposition = (50%)
+	/ hposition = (50%)
+	/ color = snow
+	/ txbgcolor = (127, 127, 127)
+	/ fontstyle = ("Arial",50pt)
+</text>
+
+<shape circle_1>
+/ shape = circle
+/ color = #ff0000 
+/ size = (300, 300)
+/ vposition = (50%)
+/ hposition = (50%)
+</shape>
+
+<shape circle_2>
+/ shape = circle
+/ color = #ffaa00
+/ size = (300, 300)
+/ vposition = (50%)
+/ hposition = (50%)
+</shape>
+
+<shape circle_3>
+/ shape = circle
+/ color = #aaff00
+/ size = (300, 300)
+/ vposition = (50%)
+/ hposition = (50%)
+</shape>
+
+<shape circle_4>
+/ shape = circle
+/ color = #00ff00
+/ size = (300, 300)
+/ vposition = (50%)
+/ hposition = (50%)
+</shape>
+
+<shape circle_5>
+/ shape = circle
+/ color = #00ffa9
+/ size = (300, 300)
+/ vposition = (50%)
+/ hposition = (50%)
+</shape>
+
+<shape circle_6>
+/ shape = circle
+/ color = #00a9ff
+/ size = (300, 300)
+/ vposition = (50%)
+/ hposition = (50%)
+</shape>
+
+<shape circle_7>
+/ shape = circle
+/ color = #0000ff
+/ size = (300, 300)
+/ vposition = (50%)
+/ hposition = (50%)
+</shape>
+
+<shape circle_8>
+/ shape = circle
+/ color = #aa00ff
+/ size = (300, 300)
+/ vposition = (50%)
+/ hposition = (50%)
+</shape>
+
+<shape circle_9>
+/ shape = circle
+/ color = #ff00aa
+/ size = (300, 300)
+/ vposition = (50%)
+/ hposition = (50%)
+</shape>
+
+
+********************************************************************************
+********************************************************************************
+Practice Trials
+********************************************************************************
+********************************************************************************
+<trial practice_start>
+/ stimulustimes = [
+	0 = fixation_cross;
+	1000 = list.colours;
+]
+/ timeout = (values.fixationduration) + 250 
+/ ontrialend = [
+	values.stimulusSOA = 250;
+	values.est_stimulusSOA = values.timeout - shape.circle_1.stimulusonset.1;	
+	values.stimuluscolour = list.colours.currentvalue.1;
+]
+/ recorddata = true
+</trial>
+
+<trial practice>
+/ stimulustimes = [
+	0 = fixation_cross;
+	1000 = list.colours;
+]
+/ timeout = values.fixationduration + 250 
+/ branch = [trial.response_options_practice]
+/ ontrialend = [
+	values.stimulusSOA = 250;
+	values.est_stimulusSOA = values.timeout - shape.circle_1.stimulusonset.1;
+	values.stimuluscolour = list.colours.currentvalue.1;
+]
+/ recorddata = true
+</trial>
+
+********************************************************************************
+********************************************************************************
+Practice Blocks
+********************************************************************************
+********************************************************************************
+
+<block practice_block>
+/ trials = [1=practice_start; 2-10=practice]
+</block>
+
+<expt>
+/ blocks = [1=practice_block]
+</expt>
+

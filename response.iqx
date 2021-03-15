@@ -9,8 +9,7 @@
 *******************************************************************************************************************
 *******************************************************************************************************************
 <include >
-/file = "main.iqx"
-/file = "general_stimuli.iqx"
+/file = "main_script.iqx"
 </include>
 *******************************************************************************************************************
 *******************************************************************************************************************
@@ -24,8 +23,6 @@
 <values>
 / similarity = -9
 / response = ""
-/catch_vals = -1
-
 /canvaswidthpx = display.canvaswidth
 /canvasheightpx = display.canvasheight
 // Found an issue with Inquisit v6 where display.canvaswidth now gives you a string value with 'px' at the end of it.
@@ -126,15 +123,6 @@
 		0 => Most Similar
 		7 => Most Different")
 / fontstyle = ("Arial", 2.8%, true)
-/ txbgcolor = (127,127,127)
-/ position = (50,80)
-</text>
-
-<text catch_instructions>
-/ items = 
-("SPECIAL TRIAL! PLEASE JUST SELECT: <%values.catch_vals%>") //.item(counter.order_catch_vals.selectedvalue)
-/ fontstyle = ("Arial", 3.2%, true)
-/ txcolor = black
 / txbgcolor = (127,127,127)
 / position = (50,80)
 </text>
@@ -354,8 +342,7 @@ values.response = -1; true; values.similarity = "0";
 <trial response_options_practice>
 / stimulusframes = [
 	1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
- during_after2_response_instructions
-]
+ during_after2_response_instructions]
 / validresponse = (response_blank, response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d)
 / inputdevice = mouse
 / isvalidresponse = [if (trial.response_options_practice.response == "response_blank") false; else
@@ -370,27 +357,6 @@ expressions.validresponse_disks
 ]
 </trial>
 
-<trial response_options_catch_practice> // special options just for this, pick a random response for them to return
-/ ontrialbegin = [
-	values.catch_vals = counter.order_catch_vals.selectedvalue - 1
-]
-
-/ stimulusframes = [
-	1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, 
- similar_reminder, dissimilar_reminder, centersquare
- catch_instructions							// added for this version. Located on 'ResponseStep.iqx'
- ]
-/ validresponse = (response_blank, response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d)
-/ inputdevice = mouse
-/ isvalidresponse = [if (trial.response_options_catch_practice.response == "response_blank") false; else
-expressions.validresponse_disks
-]
-/ recorddata = false
-/ ontrialend = [
-	values.response_time = trial.response_options_catch_practice.latency;
-]
-/ branch = [trial.centermouse_practice]
-</trial>
 
 <trial centermouse_practice>
 / stimulusframes = [1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
@@ -421,27 +387,6 @@ expressions.validresponse_disks
 ]
 </trial>
 
-<trial response_options_catch> // special options just for this, pick a random response for them to return
-/ ontrialbegin = [
-	values.catch_vals = counter.order_catch_vals.selectedvalue - 1
-]
-
-/ stimulusframes = [
-	1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, 
- similar_reminder, dissimilar_reminder, centersquare
- catch_instructions							// added for this version. Located on 'ResponseStep.iqx'
- ]
-/ validresponse = (response_blank, response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d)
-/ inputdevice = mouse
-/ isvalidresponse = [if (trial.response_options_catch.response == "response_blank") false; else
-expressions.validresponse_disks
-]
-/ recorddata = false
-/ ontrialend = [
-	values.response_time = trial.response_options_catch.latency;
-]
-/ branch = [trial.centermouse]
-</trial>
 
 <trial centermouse>
 / stimulusframes = [1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
