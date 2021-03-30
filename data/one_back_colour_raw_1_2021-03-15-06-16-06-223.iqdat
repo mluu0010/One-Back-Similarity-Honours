@@ -1,0 +1,14 @@
+build	date	time	subject	group	blockcode	blocknum	trialcode	trialnum	stimulusonset1	response	latency	similarity	stimuluscolour	response_time	stimulusSOA	est_stimulusSOA
+6.4.0	2021-03-15	17:16:06	1	1	practice_block	1	practice_start	1	2	0	250	-9	shape.circle_9	0	250	1251
+6.4.0	2021-03-15	17:16:06	1	1	practice_block	1	practice	2	1	0	250	-9	shape.circle_1	0	250	247
+6.4.0	2021-03-15	17:16:06	1	1	practice_block	1	centermouse_practice	4	1	centersquare	519	7	shape.circle_1	1084	250	247
+6.4.0	2021-03-15	17:16:06	1	1	practice_block	1	practice	5	0	0	250	7	shape.circle_9	1084	250	247
+6.4.0	2021-03-15	17:16:06	1	1	practice_block	1	centermouse_practice	7	6	centersquare	490	6	shape.circle_9	560	250	247
+6.4.0	2021-03-15	17:16:06	1	1	practice_block	1	practice	8	1	0	250	6	shape.circle_2	560	250	247
+6.4.0	2021-03-15	17:16:06	1	1	practice_block	1	centermouse_practice	10	2	centersquare	415	5	shape.circle_2	1269	250	247
+6.4.0	2021-03-15	17:16:06	1	1	practice_block	1	practice	11	0	0	250	5	shape.circle_6	1269	250	247
+6.4.0	2021-03-15	17:16:06	1	1	practice_block	1	centermouse_practice	13	1	centersquare	527	0	shape.circle_6	633	250	247
+6.4.0	2021-03-15	17:16:06	1	1	practice_block	1	practice	14	1	0	250	0	shape.circle_3	633	250	247
+6.4.0	2021-03-15	17:16:06	1	1	practice_block	1	centermouse_practice	16	1	centersquare	513	0	shape.circle_3	449	250	247
+6.4.0	2021-03-15	17:16:06	1	1	practice_block	1	practice	17	0	0	250	0	shape.circle_1	449	250	249
+6.4.0	2021-03-15	17:16:06	1	1	practice_block	1	response_options_practice	18	1	Ctrl+'Q'	370	0	shape.circle_1	370	250	249
