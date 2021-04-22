@@ -51,7 +51,7 @@ Defaults
 ********************************************************************************
 <defaults>
 /canvasaspectratio = (16,9)
-/screencolor = (127, 127, 127)
+/screencolor = white
 </defaults>
 
 ********************************************************************************
@@ -105,72 +105,72 @@ Stimuli
 <shape circle_1>
 / shape = circle
 / color = #ff0000 
-/ size = (300, 300)
-/ vposition = (50%)
-/ hposition = (50%)
+/ size = (70, 70)
+/ vposition = (40%)
+/ hposition = (30%)
 </shape>
 
 <shape circle_2>
 / shape = circle
 / color = #ffaa00
-/ size = (300, 300)
-/ vposition = (50%)
-/ hposition = (50%)
+/ size = (70, 70)
+/ vposition = (40%)
+/ hposition = (40%)
 </shape>
 
 <shape circle_3>
 / shape = circle
 / color = #aaff00
-/ size = (300, 300)
-/ vposition = (50%)
+/ size = (70, 70)
+/ vposition = (40%)
 / hposition = (50%)
 </shape>
 
 <shape circle_4>
 / shape = circle
 / color = #00ff00
-/ size = (300, 300)
-/ vposition = (50%)
-/ hposition = (50%)
+/ size = (70, 70)
+/ vposition = (55%)
+/ hposition = (30%)
 </shape>
 
 <shape circle_5>
 / shape = circle
 / color = #00ffa9
-/ size = (300, 300)
-/ vposition = (50%)
-/ hposition = (50%)
+/ size = (70, 70)
+/ vposition = (55%)
+/ hposition = (40%)
 </shape>
 
 <shape circle_6>
 / shape = circle
 / color = #00a9ff
-/ size = (300, 300)
-/ vposition = (50%)
+/ size = (70, 70)
+/ vposition = (55%)
 / hposition = (50%)
 </shape>
 
 <shape circle_7>
 / shape = circle
 / color = #0000ff
-/ size = (300, 300)
-/ vposition = (50%)
-/ hposition = (50%)
+/ size = (70, 70)
+/ vposition = (70%)
+/ hposition = (30%)
 </shape>
 
 <shape circle_8>
 / shape = circle
 / color = #aa00ff
-/ size = (300, 300)
-/ vposition = (50%)
-/ hposition = (50%)
+/ size = (70, 70)
+/ vposition = (70%)
+/ hposition = (40%)
 </shape>
 
 <shape circle_9>
 / shape = circle
 / color = #ff00aa
-/ size = (300, 300)
-/ vposition = (50%)
+/ size = (70, 70)
+/ vposition = (70%)
 / hposition = (50%)
 </shape>
 
@@ -209,6 +209,12 @@ Practice Trials
 / recorddata = true
 </trial>
 
+<trial display>
+/ stimulusframes = [1 = circle_1, circle_2, circle_3, circle_4, circle_5, circle_6, circle_7, circle_8, circle_9]
+/ timeout = 10000
+
+</trial>
+
 ********************************************************************************
 ********************************************************************************
 Practice Blocks
@@ -216,7 +222,7 @@ Practice Blocks
 ********************************************************************************
 
 <block practice_block>
-/ trials = [1=practice_start; 2-10=practice]
+/ trials = [1=display]
 </block>
 
 <expt>
