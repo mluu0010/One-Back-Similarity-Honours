@@ -6,16 +6,6 @@ By: Matthew Lu
 Created: 11/03/2021
 ********************************************************************************
 ********************************************************************************
-Instructions
-********************************************************************************
-********************************************************************************
-<htmlpage overview>
-/ file = "experiment_overview.html"
-</htmlpage>
-
-<htmlpage consent>
-/ file = "consent_form.html"
-</htmlpage>
 
 ********************************************************************************
 ********************************************************************************
@@ -24,7 +14,8 @@ Include
 ********************************************************************************
 <include>
 /file = "response.iqx"
-/file = "survey.iqx"
+/file = "stimuli_pairs.iqx"
+/ file = "EEG_Triggers.iqx"
 </include>
 
 ********************************************************************************
@@ -35,12 +26,24 @@ Initialised Constants
 <values>
 /response_time = 0
 /fixationduration = 1000
-/stimulusSOA = 0 
-/stimuluscolour = ""
-/est_stimulusSOA = 0
+/current_colour = ""
+/previous_colour = ""
 /timeout = 1250
+/trial_number = 0
 /trial_number_practice = 0
-/number_of_patch_practice = 9
+/number_of_patch_practice = 10
+/number_of_patch = 324
+/colour1 = #ff0000
+/colour2 = #ffaa00
+/colour3 = #aaff00
+/colour4 = #00ff00
+/colour5 = #00ffa9
+/colour6 = #00a9ff
+/colour7 = #0000ff
+/colour8 = #aa00ff
+/colour9 = #ff00aa
+/completed = 0
+/completion_code = ""
 </values>
 
 ********************************************************************************
@@ -50,8 +53,7 @@ Defaults
 ********************************************************************************
 ********************************************************************************
 <defaults>
-/canvasaspectratio = (16,9)
-/screencolor = white
+/screencolor = (127, 127, 127)
 </defaults>
 
 ********************************************************************************
@@ -75,157 +77,289 @@ latency: 						the response latency (in ms)
 *************
 
 <data>
-/file = "one_back_colour.iqdat"
-/columns = [build, date, time, subject, group, blockcode, blocknum, trialcode, trialnum, stimulusonset, 
-response, latency, values.similarity, values.stimuluscolour, values.response_time, values.stimulusSOA, values.est_stimulusSOA]
+/file = "one_back_colour_pilot.iqdat"
+/columns = [build, date, time, subject, group, blockcode, blocknum, trialcode, response, latency, values.trial_number, values.trial_number_practice, values.previous_colour, values.current_colour, values.similarity,
+values.response_time, values.completion_code, values.canvaswidth, values.canvasheight]
 /separatefiles = true
 </data>
+
+<summarydata>
+/file = "one_back_colour_pilot.iqdat"
+/columns = (script.startdate, script.starttime, script.subjectid, script.groupid, script.elapsedtime, computer.platform, computer.os, computer.countrycode, values.completed)
+/ separatefiles = true
+</summarydata>
+********************************************************************************
+********************************************************************************
+Consent, Instructions, Complete, Survey Pages 
+********************************************************************************
+********************************************************************************
+<htmlpage overview>
+/ file = "experiment_overview.html"
+</htmlpage>
+
+<htmlpage consent>
+/ file = "consent_form.html"
+</htmlpage>
+
+<htmlpage complete>
+/ file = "complete.html"
+</htmlpage>
+
+<htmlpage practice_instructions>
+/ file = "practice_instructions_page.html"
+</htmlpage>
+
+<htmlpage trial_instructions>
+/ file = "trial_instructions_page.html"
+</htmlpage>
+
+<include>
+/ file = "calibration.iqx"
+</include>
+
+<include>
+/file = "include_participant_demographics.iqx"
+</include>
+
 ********************************************************************************
 ********************************************************************************
 Stimuli
 ********************************************************************************
 ********************************************************************************
+
 <list colours>
-/ items = (shape.circle_1, shape.circle_2, shape.circle_3, shape.circle_4, shape.circle_5, shape.circle_6, shape.circle_7, shape.circle_8, shape.circle_9)
+/ items = (#ff0000, #ffaa00, #aaff00, #00ff00, #00ffa9, #00a9ff, #0000ff, #aa00ff, #ff00aa)
 / itemprobabilities = uniform
-/ poolsize = (243)
+/ poolsize = (9)
 / selectionrate = always
 / resetinterval = 1
 </list>
 
-<text fixation_cross>
-	/ items = ("+")
-	/ vposition = (50%)
-	/ hposition = (50%)
-	/ color = snow
-	/ txbgcolor = (127, 127, 127)
-	/ fontstyle = ("Arial",50pt)
-</text>
-
 <shape circle_1>
 / shape = circle
-/ color = #ff0000 
-/ size = (70, 70)
-/ vposition = (40%)
-/ hposition = (30%)
+/ size = (350, 350)
+/ hposition = 50%
+/ vposition = 50%
 </shape>
 
 <shape circle_2>
 / shape = circle
-/ color = #ffaa00
-/ size = (70, 70)
-/ vposition = (40%)
-/ hposition = (40%)
+/ size = (350, 350)
+/ hposition = 50%
+/ vposition = 50%
 </shape>
 
-<shape circle_3>
-/ shape = circle
-/ color = #aaff00
-/ size = (70, 70)
-/ vposition = (40%)
-/ hposition = (50%)
-</shape>
+<text fixation_cross>
+/ items = ("+")
+/ position = (50%,50%)
+/ color = snow
+/ txbgcolor = (127, 127, 127)
+/ fontstyle = ("Arial",50pt)
+</text>
 
-<shape circle_4>
-/ shape = circle
-/ color = #00ff00
-/ size = (70, 70)
-/ vposition = (55%)
-/ hposition = (30%)
-</shape>
+<list record_colour>
+</list>
 
-<shape circle_5>
-/ shape = circle
-/ color = #00ffa9
-/ size = (70, 70)
-/ vposition = (55%)
-/ hposition = (40%)
-</shape>
+<list record_pairs>
+</list>
 
-<shape circle_6>
-/ shape = circle
-/ color = #00a9ff
-/ size = (70, 70)
-/ vposition = (55%)
-/ hposition = (50%)
-</shape>
+<counter sequence_practice>
+/ select = noreplace(1-162) 
+/ selectionrate = trial
+</counter>
 
-<shape circle_7>
-/ shape = circle
-/ color = #0000ff
-/ size = (70, 70)
-/ vposition = (70%)
-/ hposition = (30%)
-</shape>
+<text completion_code>
+/items = ("Your Amazon Mechanical Turk Code: <%values.completion_code%>")
+/position = (50, 20)
+/halign = center
+/ valign = center
+/ hjustify = center
+/ vjustify = center
+/ txbgcolor = (127, 127, 127)
+/ fontstyle = ("Arial", 4.13%, false, false, false, false, 5, 0)
+/ txcolor = (0, 0, 0)
+</text>
 
-<shape circle_8>
-/ shape = circle
-/ color = #aa00ff
-/ size = (70, 70)
-/ vposition = (70%)
-/ hposition = (40%)
-</shape>
-
-<shape circle_9>
-/ shape = circle
-/ color = #ff00aa
-/ size = (70, 70)
-/ vposition = (70%)
-/ hposition = (50%)
-</shape>
-
+<text completion_code_instruction>
+/items = ("Please record/copy this completion code and paste it back to the Amazon Mechnical Turk Page.~nThank you again for participating in our study!~n~nPress <space> to end this experiment.")
+/position = (50, 40)
+/ txbgcolor = (127, 127, 127)
+/ fontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ txcolor = (255, 255, 255)
+</text>
 
 ********************************************************************************
 ********************************************************************************
-Practice Trials
+Trials
 ********************************************************************************
 ********************************************************************************
 <trial practice_start>
-/ stimulustimes = [
-	0 = fixation_cross;
-	1000 = list.colours;
-]
-/ timeout = (values.fixationduration) + 250 
-/ ontrialend = [
-	values.stimulusSOA = 250;
-	values.est_stimulusSOA = values.timeout - shape.circle_1.stimulusonset.1;	
-	values.stimuluscolour = list.colours.currentvalue.1;
-]
-/ recorddata = true
-</trial>
-
-<trial practice>
-/ stimulustimes = [
-	0 = fixation_cross;
-	1000 = list.colours;
-]
 / timeout = values.fixationduration + 250 
-/ branch = [trial.response_options_practice]
-/ ontrialend = [
-	values.stimulusSOA = 250;
-	values.est_stimulusSOA = values.timeout - shape.circle_1.stimulusonset.1;
-	values.stimuluscolour = list.colours.currentvalue.1;
+/ stimulustimes = [
+0 = fixation_cross; 
+1000 = shape.circle_1
 ]
-/ recorddata = true
+/ ontrialbegin = [
+    shape.circle_1.color = list.colours.nextvalue;
+]
+/ ontrialend = [
+    values.previous_colour = list.colours.currentvalue
+]
+/ recorddata = false
 </trial>
 
-<trial display>
-/ stimulusframes = [1 = circle_1, circle_2, circle_3, circle_4, circle_5, circle_6, circle_7, circle_8, circle_9]
-/ timeout = 10000
+<trial practice_1>
+/ timeout = values.fixationduration + 250
+/ stimulustimes = [
+0 = fixation_cross;
+1000 = shape.circle_1
+]
+/ ontrialbegin = [
+	values.trial_number_practice += 1;
+    expressions.colour_select;
+	if(block.practice_block.trialcount == 1){
+		values.previous_colour = list.colours.currentvalue;} 
+	else {values.previous_colour = list.record_colour.currentvalue;}
+]
+/ ontrialend = [
+	 list.record_colour.appenditem(shape.circle_1.color);
+	 values.current_colour =  shape.circle_1.color
+]
+/ branch = [trial.response_options_practice]
+/ recorddata = false
+</trial> 
 
+<trial practice_2>
+/ stimulustimes = [
+0 = fixation_cross;
+1000 = shape.circle_2]
+/ timeout = values.fixationduration + 250
+/ ontrialbegin = [
+	values.trial_number_practice += 1;
+	values.previous_colour = list.record_colour.currentvalue;
+	shape.circle_2.color = list.record_pairs.nextvalue  
+]
+/ ontrialend = [
+	 list.record_colour.appenditem(shape.circle_2.color);
+	 values.current_colour = shape.circle_2.color
+]
+/ branch = [trial.response_options_practice]
+/ recorddata = false
+</trial> 
+
+<trial actual_start>
+/ timeout = values.fixationduration + 250 
+/ stimulustimes = [
+0 = fixation_cross; 
+1000 = shape.circle_1
+]
+/ ontrialbegin = [
+    shape.circle_1.color = list.colours.nextvalue;
+]
+/ ontrialend = [
+    values.previous_colour = list.colours.currentvalue
+]
+/ recorddata = false
+</trial>
+
+<trial actual_1>
+/ timeout = values.fixationduration + 250
+/ stimulustimes = [
+0 = fixation_cross;
+1000 = shape.circle_1
+]
+/ ontrialbegin = [
+	values.trial_number += 1;
+    expressions.colour_select;
+	if(block.actual_block.trialcount == 1){
+		values.previous_colour = list.colours.currentvalue;} 
+	else {values.previous_colour = list.record_colour.currentvalue;}
+]
+/ ontrialend = [
+	 list.record_colour.appenditem(shape.circle_1.color);
+	 values.current_colour =  shape.circle_1.color
+]
+/ branch = [trial.response_options]
+/ recorddata = false
+</trial> 
+
+<trial actual_2>
+/ stimulustimes = [
+0 = fixation_cross;
+1000 = shape.circle_2]
+/ timeout = values.fixationduration + 250
+/ ontrialbegin = [
+	values.trial_number += 1;
+	values.previous_colour = list.record_colour.currentvalue;
+	shape.circle_2.color = list.record_pairs.nextvalue  
+]
+/ ontrialend = [
+	 list.record_colour.appenditem(shape.circle_2.color);
+	 values.current_colour = shape.circle_2.color
+]
+/ branch = [trial.response_options]
+/ recorddata = false
+</trial> 
+
+<surveypage demographic_page>
+/ caption = "You have now finished the trials. Before you finish the experiment, we would like you to complete the following questions please."
+/ fontstyle =  ("Arial", 3%)
+/ showquestionnumbers = false
+/ showpagenumbers = false
+/ questions = [1=sex; 2=age; 3=nationality; 4=education; 5=acuity; 6=colourimpairment; 7=colour_response]
+/ navigationbuttonsize = (20, 4)
+/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (40%,  values.demo_starting_y_offset + 12*values.demo_gap)
+/ response = correct
+/ finishlabel = "Complete"
+</surveypage>
+
+<trial mturk_completion_code>
+/ ontrialbegin = [values.completion_code=ipart(rand(1,99999))]
+/ stimulustimes = [0=completion_code, completion_code_instruction]
+/ inputdevice = keyboard
+/ correctresponse = (" ")
 </trial>
 
 ********************************************************************************
 ********************************************************************************
-Practice Blocks
+Blocks
 ********************************************************************************
 ********************************************************************************
+<block intro>
+/ preinstructions = (overview)
+</block>
+
+<block consent>
+/ preinstructions = (consent)
+</block>
+
+<block calibration>
+/ trials = [1 = Calibration_instruction_page1]
+/ screencolor = white
+</block>
 
 <block practice_block>
-/ trials = [1=display]
+/ preinstructions = (practice_instructions)
+/ trials = [1=practice_start; 2-6 = sequence(practice_1, practice_2)]
+</block>
+
+<block actual_block>
+/ preinstructions = (trial_instructions)
+/ trials = [1=actual_start; 2-163 = sequence(actual_1, actual_2)]
+</block>
+
+<block demographics>
+/trials = [1=demographic_page]	
+</block>
+
+<block completion_code>
+/trials = [1=mturk_completion_code]
+/ preinstructions = (complete)
 </block>
 
 <expt>
-/ blocks = [1=practice_block]
+/onexptend = [values.completed = 1]
+/blocks = [ 1=intro; 2=consent; 3=calibration; 4=practice_block; 5=actual_block;6=demographics;7=completion_code]
 </expt>
 

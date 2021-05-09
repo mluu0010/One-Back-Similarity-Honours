@@ -1,0 +1,425 @@
+﻿***************************************************************************
+***************************************************************************
+One Back Colour Similarity Experiment - Stimuli Pairs and Colour Selector 
+
+By: Matthew Lu
+Created: 11/03/2021
+***************************************************************************
+***************************************************************************
+<include>
+/ file = "main_script.iqx"
+</include>
+
+<item pairs>
+/1 = "53"
+/2 = "29"
+/3 = "63"
+/4 = "79"
+/5 = "56"
+/6 = "15"
+/7 = "36"
+/8 = "47"
+/9 = "99"
+/10 = "62"
+/11 = "71"
+/12 = "18"
+/13 = "11"
+/14 = "12"
+/15 = "44"
+/16 = "37"
+/17 = "52"
+/18 = "25"
+/19 = "59"
+/20 = "36"
+/21 = "23"
+/22 = "39"
+/23 = "77"
+/24 = "66"
+/25 = "96"
+/26 = "56"
+/27 = "57"
+/28 = "39"
+/29 = "51"
+/30 = "16"
+/31 = "35"
+/32 = "43"
+/33 = "33"
+/34 = "24"
+/35 = "31"
+/36 = "57"
+/37 = "48"
+/38 = "95"
+/39 = "81"
+/40 = "59"
+/41 = "17"
+/42 = "19"
+/43 = "55"
+/44 = "17"
+/45 = "26"
+/46 = "67"
+/47 = "83"
+/48 = "29"
+/49 = "35"
+/50 = "84"
+/51 = "76"
+/52 = "89"
+/53 = "82"
+/54 = "98"
+/55 = "46"
+/56 = "61"
+/57 = "67"
+/58 = "54"
+/59 = "14"
+/60 = "85"
+/61 = "13"
+/62 = "38"
+/63 = "63"
+/64 = "21"
+/65 = "76"
+/66 = "85"
+/67 = "37"
+/68 = "97"
+/69 = "74"
+/70 = "73"
+/71 = "95"
+/72 = "68"
+/73 = "14"
+/74 = "78"
+/75 = "81"
+/76 = "32"
+/77 = "99"
+/78 = "49"
+/79 = "51"
+/80 = "21"
+/81 = "91"
+/82 = "87"
+/83 = "22"
+/84 = "93"
+/85 = "61"
+/86 = "79"
+/87 = "83"
+/88 = "44"
+/89 = "71"
+/90 = "91"
+/91 = "98"
+/92 = "26"
+/93 = "41"
+/94 = "88"
+/95 = "43"
+/96 = "52"
+/97 = "41"
+/98 = "92"
+/99 = "48"
+/100 = "18"
+/101 = "87"
+/102 = "58"
+/103 = "65"
+/104 = "82"
+/105 = "34"
+/106 = "58"
+/107 = "45"
+/108 = "64"
+/109 = "15"
+/110 = "64"
+/111 = "75"
+/112 = "32"
+/113 = "72"
+/114 = "13"
+/115 = "97"
+/116 = "16"
+/117 = "92"
+/118 = "84"
+/119 = "22"
+/120 = "74"
+/121 = "68"
+/122 = "49"
+/123 = "28"
+/124 = "86"
+/125 = "47"
+/126 = "25"
+/127 = "96"
+/128 = "66"
+/129 = "73"
+/130 = "86"
+/131 = "24"
+/132 = "55"
+/133 = "19"
+/134 = "94"
+/135 = "12"
+/136 = "93"
+/137 = "88"
+/138 = "65"
+/139 = "38"
+/140 = "75"
+/141 = "42"
+/142 = "53"
+/143 = "94"
+/144 = "72"
+/145 = "31"
+/146 = "11"
+/147 = "27"
+/148 = "69"
+/149 = "23"
+/150 = "42"
+/151 = "78"
+/152 = "62"
+/153 = "46"
+/154 = "34"
+/155 = "77"
+/156 = "54"
+/157 = "33"
+/158 = "28"
+/159 = "69"
+/160 = "89"
+/161 = "45"
+/162 = "27"
+</item>
+
+
+<expressions>
+/colour_select = 
+if(item.pairs.item(counter.sequence_practice.selectedvalue) == "11"){
+	shape.circle_1.color = values.colour1;
+    list.record_pairs.appenditem(values.colour1);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "12"){
+   shape.circle_1.color = values.colour1;
+	 list.record_pairs.appenditem(values.colour2);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "13"){
+   shape.circle_1.color = values.colour1;
+	 list.record_pairs.appenditem(values.colour3);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "14"){
+   shape.circle_1.color = values.colour1;
+	 list.record_pairs.appenditem(values.colour4);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "15"){
+   shape.circle_1.color = values.colour1;
+	 list.record_pairs.appenditem(values.colour5);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "16"){
+   shape.circle_1.color = values.colour1;
+	 list.record_pairs.appenditem(values.colour6);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "17"){
+   shape.circle_1.color = values.colour1;
+	 list.record_pairs.appenditem(values.colour7);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "18"){
+	 shape.circle_1.color = values.colour1;
+	 list.record_pairs.appenditem(values.colour8);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "19"){
+	 shape.circle_1.color = values.colour1;
+	 list.record_pairs.appenditem(values.colour9);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "21"){
+	shape.circle_1.color = values.colour2;
+    list.record_pairs.appenditem(values.colour1);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "22"){
+   shape.circle_1.color = values.colour2;
+	 list.record_pairs.appenditem(values.colour2);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "23"){
+   shape.circle_1.color = values.colour2;
+	 list.record_pairs.appenditem(values.colour3);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "24"){
+   shape.circle_1.color = values.colour2;
+	 list.record_pairs.appenditem(values.colour4);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "25"){
+   shape.circle_1.color = values.colour2;
+	 list.record_pairs.appenditem(values.colour5);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "26"){
+   shape.circle_1.color = values.colour2;
+	 list.record_pairs.appenditem(values.colour6);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "27"){
+   shape.circle_1.color = values.colour2;
+	 list.record_pairs.appenditem(values.colour7);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "28"){
+	 shape.circle_1.color = values.colour2;
+	 list.record_pairs.appenditem(values.colour8);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "29"){
+	 shape.circle_1.color = values.colour2;
+	 list.record_pairs.appenditem(values.colour9);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "31"){
+	shape.circle_1.color = values.colour3;
+    list.record_pairs.appenditem(values.colour1);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "32"){
+   shape.circle_1.color = values.colour3;
+	 list.record_pairs.appenditem(values.colour2);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "33"){
+   shape.circle_1.color = values.colour3;
+	 list.record_pairs.appenditem(values.colour3);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "34"){
+   shape.circle_1.color = values.colour3;
+	 list.record_pairs.appenditem(values.colour4);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "35"){
+   shape.circle_1.color = values.colour3;
+	 list.record_pairs.appenditem(values.colour5);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "36"){
+   shape.circle_1.color = values.colour3;
+	 list.record_pairs.appenditem(values.colour6);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "37"){
+   shape.circle_1.color = values.colour3;
+	 list.record_pairs.appenditem(values.colour7);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "38"){
+	 shape.circle_1.color = values.colour3;
+	 list.record_pairs.appenditem(values.colour8);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "39"){  
+	 shape.circle_1.color = values.colour3;
+	 list.record_pairs.appenditem(values.colour9);	 
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "41"){
+	shape.circle_1.color = values.colour4;
+    list.record_pairs.appenditem(values.colour1);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "42"){
+   shape.circle_1.color = values.colour4;
+	 list.record_pairs.appenditem(values.colour2);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "43"){
+   shape.circle_1.color = values.colour4;
+	 list.record_pairs.appenditem(values.colour3);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "44"){
+   shape.circle_1.color = values.colour4;
+	 list.record_pairs.appenditem(values.colour4);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "45"){
+   shape.circle_1.color = values.colour4;
+	 list.record_pairs.appenditem(values.colour5);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "46"){
+   shape.circle_1.color = values.colour4;
+	 list.record_pairs.appenditem(values.colour6);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "47"){
+   shape.circle_1.color = values.colour4;
+	 list.record_pairs.appenditem(values.colour7);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "48"){
+	 shape.circle_1.color = values.colour4;
+	 list.record_pairs.appenditem(values.colour8);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "49"){
+	 shape.circle_1.color = values.colour4;
+	 list.record_pairs.appenditem(values.colour9); 
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "51"){
+	shape.circle_1.color = values.colour5;
+    list.record_pairs.appenditem(values.colour1);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "52"){
+   shape.circle_1.color = values.colour5;
+	 list.record_pairs.appenditem(values.colour2);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "53"){
+   shape.circle_1.color = values.colour5;
+	 list.record_pairs.appenditem(values.colour3);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "54"){
+   shape.circle_1.color = values.colour5;
+	 list.record_pairs.appenditem(values.colour4);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "55"){
+   shape.circle_1.color = values.colour5;
+	 list.record_pairs.appenditem(values.colour5);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "56"){
+   shape.circle_1.color = values.colour5;
+	 list.record_pairs.appenditem(values.colour6);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "57"){
+   shape.circle_1.color = values.colour5;
+	 list.record_pairs.appenditem(values.colour7);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "58"){
+	 shape.circle_1.color = values.colour5;
+	 list.record_pairs.appenditem(values.colour8);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "59"){
+	 shape.circle_1.color = values.colour5;
+	 list.record_pairs.appenditem(values.colour9);	 
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "61"){
+	shape.circle_1.color = values.colour6;
+    list.record_pairs.appenditem(values.colour1);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "62"){
+   shape.circle_1.color = values.colour6;
+	 list.record_pairs.appenditem(values.colour2);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "63"){
+   shape.circle_1.color = values.colour6;
+	 list.record_pairs.appenditem(values.colour3);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "64"){
+   shape.circle_1.color = values.colour6;
+	 list.record_pairs.appenditem(values.colour4);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "65"){
+   shape.circle_1.color = values.colour6;
+	 list.record_pairs.appenditem(values.colour5);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "66"){
+   shape.circle_1.color = values.colour6;
+	 list.record_pairs.appenditem(values.colour6);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "67"){
+   shape.circle_1.color = values.colour6;
+	 list.record_pairs.appenditem(values.colour7);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "68"){
+	 shape.circle_1.color = values.colour6;
+	 list.record_pairs.appenditem(values.colour8);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "69"){
+	 shape.circle_1.color = values.colour6;
+	 list.record_pairs.appenditem(values.colour9);	 
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "71"){
+	shape.circle_1.color = values.colour7;
+    list.record_pairs.appenditem(values.colour1);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "72"){
+   shape.circle_1.color = values.colour7;
+	 list.record_pairs.appenditem(values.colour2);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "73"){
+   shape.circle_1.color = values.colour7;
+	 list.record_pairs.appenditem(values.colour3);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "74"){
+   shape.circle_1.color = values.colour7;
+	 list.record_pairs.appenditem(values.colour4);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "75"){
+   shape.circle_1.color = values.colour7;
+	 list.record_pairs.appenditem(values.colour5);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "76"){
+   shape.circle_1.color = values.colour7;
+	 list.record_pairs.appenditem(values.colour6);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "77"){
+   shape.circle_1.color = values.colour7;
+	 list.record_pairs.appenditem(values.colour7);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "78"){
+	 shape.circle_1.color = values.colour7;
+	 list.record_pairs.appenditem(values.colour8);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "79"){
+	 shape.circle_1.color = values.colour7;
+	 list.record_pairs.appenditem(values.colour9);	 
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "81"){
+	shape.circle_1.color = values.colour8;
+    list.record_pairs.appenditem(values.colour1);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "82"){
+   shape.circle_1.color = values.colour8;
+	 list.record_pairs.appenditem(values.colour2);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "83"){
+   shape.circle_1.color = values.colour8;
+	 list.record_pairs.appenditem(values.colour3);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "84"){
+   shape.circle_1.color = values.colour8;
+	 list.record_pairs.appenditem(values.colour4);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "85"){
+   shape.circle_1.color = values.colour8;
+	 list.record_pairs.appenditem(values.colour5);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "86"){
+   shape.circle_1.color = values.colour8;
+	 list.record_pairs.appenditem(values.colour6);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "87"){
+   shape.circle_1.color = values.colour8;
+	 list.record_pairs.appenditem(values.colour7);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "88"){
+	 shape.circle_1.color = values.colour8;
+	 list.record_pairs.appenditem(values.colour8);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "89"){
+	 shape.circle_1.color = values.colour8;
+	 list.record_pairs.appenditem(values.colour9);	 
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "91"){
+	shape.circle_1.color = values.colour9;
+    list.record_pairs.appenditem(values.colour1);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "92"){
+   shape.circle_1.color = values.colour9;
+	 list.record_pairs.appenditem(values.colour2);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "93"){
+   shape.circle_1.color = values.colour9;
+	 list.record_pairs.appenditem(values.colour3);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "94"){
+   shape.circle_1.color = values.colour9;
+	 list.record_pairs.appenditem(values.colour4);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "95"){
+   shape.circle_1.color = values.colour9;
+	 list.record_pairs.appenditem(values.colour5);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "96"){
+   shape.circle_1.color = values.colour9;
+	 list.record_pairs.appenditem(values.colour6);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "97"){
+   shape.circle_1.color = values.colour9;
+	 list.record_pairs.appenditem(values.colour7);
+   } else if(item.pairs.item(counter.sequence_practice.selectedvalue) == "98"){
+	 shape.circle_1.color = values.colour9;
+	 list.record_pairs.appenditem(values.colour8);
+   } else {
+	 shape.circle_1.color = values.colour9;
+	 list.record_pairs.appenditem(values.colour9);}	 	 
+</expressions>
+

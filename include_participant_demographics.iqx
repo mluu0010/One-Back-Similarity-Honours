@@ -1,0 +1,262 @@
+﻿<values>
+/demo_first_col = 10
+/demo_second_col = 55
+/demo_starting_y_offset = 20
+/demo_gap = 5
+</values>
+
+<radiobuttons sex>
+/ caption = "Sex"
+/ options = ("Male", "Female", "Other", "Prefer Not to Answer")
+/ orientation = horizontal
+/ position = (values.demo_first_col, values.demo_starting_y_offset)
+/ responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 0)
+/ required = true
+</radiobuttons>
+
+<textbox age>
+/ caption = "Age (years)"
+/ maxchars = 3
+/ textboxsize = (6, 4)
+/ required = true
+/ mask = positiveintegerorzero
+/ position = (values.demo_first_col, values.demo_starting_y_offset + 2.5*values.demo_gap)
+/ size = (20%, 10)
+</textbox>
+
+<dropdown nationality>
+/ caption = "Nationality"
+/ options = ("Afghan",
+"Albanian",
+"Algerian",
+"American",
+"Andorran",
+"Angolan",
+"Antiguans",
+"Argentinean",
+"Armenian",
+"Australian",
+"Austrian",
+"Azerbaijani",
+"Bahamian",
+"Bahraini",
+"Bangladeshi",
+"Barbadian",
+"Barbudans",
+"Batswana",
+"Belarusian",
+"Belgian",
+"Belizean",
+"Beninese",
+"Bhutanese",
+"Bolivian",
+"Bosnian",
+"Brazilian",
+"British",
+"Bruneian",
+"Bulgarian",
+"Burkinabe",
+"Burmese",
+"Burundian",
+"Cambodian",
+"Cameroonian",
+"Canadian",
+"Cape Verdean",
+"Central African",
+"Chadian",
+"Chilean",
+"Chinese",
+"Colombian",
+"Comoran",
+"Congolese",
+"Congolese",
+"Costa Rican",
+"Croatian",
+"Cuban",
+"Cypriot",
+"Czech",
+"Danish",
+"Djibouti",
+"Dominican",
+"Dominican",
+"Dutch",
+"Dutchman",
+"Dutchwoman",
+"East Timorese",
+"Ecuadorean",
+"Egyptian",
+"Emirian",
+"Equatorial Guinean",
+"Eritrean",
+"Estonian",
+"Ethiopian",
+"Fijian",
+"Filipino",
+"Finnish",
+"French",
+"Gabonese",
+"Gambian",
+"Georgian",
+"German",
+"Ghanaian",
+"Greek",
+"Grenadian",
+"Guatemalan",
+"Guinea-Bissauan",
+"Guinean",
+"Guyanese",
+"Haitian",
+"Herzegovinian",
+"Honduran",
+"Hungarian",
+"I-Kiribati",
+"Icelander",
+"Indian",
+"Indonesian",
+"Iranian",
+"Iraqi",
+"Irish",
+"Irish",
+"Israeli",
+"Italian",
+"Ivorian",
+"Jamaican",
+"Japanese",
+"Jordanian",
+"Kazakhstani",
+"Kenyan",
+"Kittian and Nevisian",
+"Kuwaiti",
+"Kyrgyz",
+"Laotian",
+"Latvian",
+"Lebanese",
+"Liberian",
+"Libyan",
+"Liechtensteiner",
+"Lithuanian",
+"Luxembourger",
+"Macedonian",
+"Malagasy",
+"Malawian",
+"Malaysian",
+"Maldivan",
+"Malian",
+"Maltese",
+"Marshallese",
+"Mauritanian",
+"Mauritian",
+"Mexican",
+"Micronesian",
+"Moldovan",
+"Monacan",
+"Mongolian",
+"Moroccan",
+"Mosotho",
+"Motswana",
+"Mozambican",
+"Namibian",
+"Nauruan",
+"Nepalese",
+"Netherlander",
+"New Zealander",
+"Ni-Vanuatu",
+"Nicaraguan",
+"Nigerian",
+"Nigerien",
+"North Korean",
+"Northern Irish",
+"Norwegian",
+"Omani",
+"Pakistani",
+"Palauan",
+"Panamanian",
+"Papua New Guinean",
+"Paraguayan",
+"Peruvian",
+"Prefer Not to Say",
+"Polish",
+"Portuguese",
+"Qatari",
+"Romanian",
+"Russian",
+"Rwandan",
+"Saint Lucian",
+"Salvadoran",
+"Samoan",
+"San Marinese",
+"Sao Tomean",
+"Saudi",
+"Scottish",
+"Senegalese",
+"Serbian",
+"Seychellois",
+"Sierra Leonean",
+"Singaporean",
+"Slovakian",
+"Slovenian",
+"Solomon Islander",
+"Somali",
+"South African",
+"South Korean",
+"Spanish",
+"Sri Lankan",
+"Sudanese",
+"Surinamer",
+"Swazi",
+"Swedish",
+"Swiss",
+"Syrian",
+"Taiwanese",
+"Tajik",
+"Tanzanian",
+"Thai",
+"Togolese",
+"Tongan",
+"Trinidadian or Tobagonian",
+"Tunisian",
+"Turkish",
+"Tuvaluan",
+"Ugandan",
+"Ukrainian",
+"Uruguayan",
+"Uzbekistani",
+"Venezuelan",
+"Vietnamese",
+"Welsh",
+"Welsh",
+"Yemenite",
+"Zambian",
+"Zimbabwean"
+)
+/ position = (values.demo_first_col, values.demo_starting_y_offset + 5*values.demo_gap)
+/ required = true
+</dropdown>
+
+<dropdown education>
+/ caption = "Education (Highest qualification)"
+/ options = ("Less than a high school diploma", "High school degree or equivalent", "Bachelor's degree (e.g. BA, BS)", "Master's degree (e.g. MA, MS, MEd)", "Doctorate (e.g. PhD, EdD)", "Other", "Prefer Not to Answer")
+/ position = (values.demo_first_col, values.demo_starting_y_offset + 7.5*values.demo_gap)
+/ required = true
+</dropdown>
+
+<radiobuttons colourimpairment>
+/caption = "Do you have any colour vision impairment?"
+/required = true
+/options = ("No","Yes")
+/position = (values.demo_second_col, values.demo_starting_y_offset + 4*values.demo_gap)
+</radiobuttons>
+
+<textbox colour_response>
+/caption = "If you have colour vision impairment, please describe the type (e.g. 'red-green colour blind'). Otherwise, skip this question."
+/required = false
+/ position = (values.demo_second_col, values.demo_starting_y_offset + 7.5*values.demo_gap)
+</textbox>
+
+<radiobuttons acuity>
+/caption = "Do you have normal visual acuity, or corrected-to-normal wearing glasses or contact lenses?"
+/required = true
+/options = ("No","Yes")
+/position = (values.demo_second_col, values.demo_starting_y_offset)
+</radiobuttons>
+

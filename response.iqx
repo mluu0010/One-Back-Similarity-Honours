@@ -1,8 +1,9 @@
 ﻿***************************************************************************
 ***************************************************************************
-			Color Similarity Across Retinal Eccentricity
-			2 stimuli, fixed vs. scaled size patches, during
-			Response Page Controls
+One Back Colour Similarity Experiment - Response 
+
+By: Matthew Lu
+Created: 11/03/2021
 ***************************************************************************
 ***************************************************************************
 	INCLUDE
@@ -25,13 +26,14 @@
 / response = ""
 /canvaswidthpx = display.canvaswidth
 /canvasheightpx = display.canvasheight
+/displaywidth = display.width
+/displayheight = display.height
 // Found an issue with Inquisit v6 where display.canvaswidth now gives you a string value with 'px' at the end of it.
 // Need to remove it to make the calculations work
 /canvaswidth = trimright(values.canvaswidthpx, "px")
 /canvasheight = trimright(values.canvasheightpx, "px")
 /responseY = 9
 /responseX = (canvasheight/canvaswidth) * (values.responseY)
-
 </values>
 
 *******************************************************************************************************************
@@ -65,13 +67,13 @@
 
 <shape centersquare>
 / shape = rectangle
-/ size = (5%, 5%)
+/ size = (5%, 8%)
 / position = (50%, 50%)
-/ color = (green)
+/ color = (0,0,0)
 </shape>
 
 <text notice_centre_mouse>
-/ items = ("Please click the green rectangle to continue")
+/ items = ("Please click the center square to continue")
 / fontstyle = ("Arial", 3%, true)
 / position = (50%,80%)
 / txbgcolor = (127,127,127)
@@ -109,7 +111,7 @@
 
 <text during_after2_response_instructions>
 / items = 
-("Please choose the similarity level of previously 2 cued circles
+("Please choose the similarity level between the colours of the 2 previous circles
 		0 => Most Similar
 		7 => Most Different")
 / fontstyle = ("Arial", 2.8%, true)
@@ -119,7 +121,7 @@
 
 <text after1_response_instructions>
 / items = 
-("Please choose the similarity level of previously 2 cued circles
+("Please choose the similarity level between the colours of the 2 previous circles
 		0 => Most Similar
 		7 => Most Different")
 / fontstyle = ("Arial", 2.8%, true)
@@ -214,8 +216,10 @@ Remove the 'response/...' to make this script run on its own (if it is not an in
 / y12d = picture.response1d.top
 / x13d = picture.response1d.left
 / y13d = picture.response1d.bottom
-/ a1d = ((expressions.y12d - expressions.y13d)*(mouse.x - expressions.x13d) + (expressions.x13d - expressions.x12d)*(mouse.y - expressions.y13d)) / ((expressions.y12d - expressions.y13d)*(expressions.x11d - expressions.x13d)+(expressions.x13d - expressions.x12d)*(expressions.y11d - expressions.y13d))
-/ b1d = ((expressions.y13d - expressions.y11d)*(mouse.x - expressions.x13d) + (expressions.x11d - expressions.x13d)*(mouse.y - expressions.y13d)) / ((expressions.y12d - expressions.y13d)*(expressions.x11d - expressions.x13d)+(expressions.x13d - expressions.x12d)*(expressions.y11d - expressions.y13d))
+/ a1d = ((expressions.y12d - expressions.y13d)*(mouse.x - expressions.x13d) + (expressions.x13d - expressions.x12d)*(mouse.y - expressions.y13d)) / ((expressions.y12d - expressions.y13d)*(expressions.x11d - expressions.x13d)+(expressions.x13d - expressions.x12d)*
+(expressions.y11d - expressions.y13d))
+/ b1d = ((expressions.y13d - expressions.y11d)*(mouse.x - expressions.x13d) + (expressions.x11d - expressions.x13d)*(mouse.y - expressions.y13d)) / ((expressions.y12d - expressions.y13d)*(expressions.x11d - expressions.x13d)+(expressions.x13d - expressions.x12d)*
+(expressions.y11d - expressions.y13d))
 / c1d = 1 - expressions.a1d - expressions.b1d
 </expressions>
 
@@ -226,8 +230,10 @@ Remove the 'response/...' to make this script run on its own (if it is not an in
 / y22d = picture.response2d.top
 / x23d = picture.response2d.right
 / y23d = picture.response2d.bottom
-/ a2d = ((expressions.y22d - expressions.y23d)*(mouse.x - expressions.x23d) + (expressions.x23d - expressions.x22d)*(mouse.y - expressions.y23d)) / ((expressions.y22d - expressions.y23d)*(expressions.x21d - expressions.x23d)+(expressions.x23d - expressions.x22d)*(expressions.y21d - expressions.y23d))
-/ b2d = ((expressions.y23d - expressions.y21d)*(mouse.x - expressions.x23d) + (expressions.x21d - expressions.x23d)*(mouse.y - expressions.y23d)) / ((expressions.y22d - expressions.y23d)*(expressions.x21d - expressions.x23d)+(expressions.x23d - expressions.x22d)*(expressions.y21d - expressions.y23d))
+/ a2d = ((expressions.y22d - expressions.y23d)*(mouse.x - expressions.x23d) + (expressions.x23d - expressions.x22d)*(mouse.y - expressions.y23d)) / ((expressions.y22d - expressions.y23d)*(expressions.x21d - expressions.x23d)+(expressions.x23d - expressions.x22d)*
+(expressions.y21d - expressions.y23d))
+/ b2d = ((expressions.y23d - expressions.y21d)*(mouse.x - expressions.x23d) + (expressions.x21d - expressions.x23d)*(mouse.y - expressions.y23d)) / ((expressions.y22d - expressions.y23d)*(expressions.x21d - expressions.x23d)+(expressions.x23d - expressions.x22d)*
+(expressions.y21d - expressions.y23d))
 / c2d = 1 - expressions.a2d - expressions.b2d
 </expressions>
 
@@ -238,8 +244,10 @@ Remove the 'response/...' to make this script run on its own (if it is not an in
 / y32d = picture.response3d.top
 / x33d = picture.response3d.right
 / y33d = picture.response3d.bottom
-/ a3d = ((expressions.y32d - expressions.y33d)*(mouse.x - expressions.x33d) + (expressions.x33d - expressions.x32d)*(mouse.y - expressions.y33d)) / ((expressions.y32d - expressions.y33d)*(expressions.x31d - expressions.x33d)+(expressions.x33d - expressions.x32d)*(expressions.y31d - expressions.y33d))
-/ b3d = ((expressions.y33d - expressions.y31d)*(mouse.x - expressions.x33d) + (expressions.x31d - expressions.x33d)*(mouse.y - expressions.y33d)) / ((expressions.y32d - expressions.y33d)*(expressions.x31d - expressions.x33d)+(expressions.x33d - expressions.x32d)*(expressions.y31d - expressions.y33d))
+/ a3d = ((expressions.y32d - expressions.y33d)*(mouse.x - expressions.x33d) + (expressions.x33d - expressions.x32d)*(mouse.y - expressions.y33d)) / ((expressions.y32d - expressions.y33d)*(expressions.x31d - expressions.x33d)+(expressions.x33d - expressions.x32d)*
+(expressions.y31d - expressions.y33d))
+/ b3d = ((expressions.y33d - expressions.y31d)*(mouse.x - expressions.x33d) + (expressions.x31d - expressions.x33d)*(mouse.y - expressions.y33d)) / ((expressions.y32d - expressions.y33d)*(expressions.x31d - expressions.x33d)+(expressions.x33d - expressions.x32d)*
+(expressions.y31d - expressions.y33d))
 / c3d = 1 - expressions.a3d - expressions.b3d
 </expressions>
 
@@ -250,8 +258,10 @@ Remove the 'response/...' to make this script run on its own (if it is not an in
 / y42d = picture.response4d.bottom
 / x43d = picture.response4d.left
 / y43d = picture.response4d.bottom
-/ a4d = ((expressions.y42d - expressions.y43d)*(mouse.x - expressions.x43d) + (expressions.x43d - expressions.x42d)*(mouse.y - expressions.y43d)) / ((expressions.y42d - expressions.y43d)*(expressions.x41d - expressions.x43d)+(expressions.x43d - expressions.x42d)*(expressions.y41d - expressions.y43d))
-/ b4d = ((expressions.y43d - expressions.y41d)*(mouse.x - expressions.x43d) + (expressions.x41d - expressions.x43d)*(mouse.y - expressions.y43d)) / ((expressions.y42d - expressions.y43d)*(expressions.x41d - expressions.x43d)+(expressions.x43d - expressions.x42d)*(expressions.y41d - expressions.y43d))
+/ a4d = ((expressions.y42d - expressions.y43d)*(mouse.x - expressions.x43d) + (expressions.x43d - expressions.x42d)*(mouse.y - expressions.y43d)) / ((expressions.y42d - expressions.y43d)*(expressions.x41d - expressions.x43d)+(expressions.x43d - expressions.x42d)*
+(expressions.y41d - expressions.y43d))
+/ b4d = ((expressions.y43d - expressions.y41d)*(mouse.x - expressions.x43d) + (expressions.x41d - expressions.x43d)*(mouse.y - expressions.y43d)) / ((expressions.y42d - expressions.y43d)*(expressions.x41d - expressions.x43d)+(expressions.x43d - expressions.x42d)*
+(expressions.y41d - expressions.y43d))
 / c4d = 1 - expressions.a4d - expressions.b4d
 </expressions>
 
@@ -262,8 +272,10 @@ Remove the 'response/...' to make this script run on its own (if it is not an in
 / y52d = picture.response5d.top
 / x53d = picture.response5d.right
 / y53d = picture.response5d.bottom
-/ a5d = ((expressions.y52d - expressions.y53d)*(mouse.x - expressions.x53d) + (expressions.x53d - expressions.x52d)*(mouse.y - expressions.y53d)) / ((expressions.y52d - expressions.y53d)*(expressions.x51d - expressions.x53d)+(expressions.x53d - expressions.x52d)*(expressions.y51d - expressions.y53d))
-/ b5d = ((expressions.y53d - expressions.y51d)*(mouse.x - expressions.x53d) + (expressions.x51d - expressions.x53d)*(mouse.y - expressions.y53d)) / ((expressions.y52d - expressions.y53d)*(expressions.x51d - expressions.x53d)+(expressions.x53d - expressions.x52d)*(expressions.y51d - expressions.y53d))
+/ a5d = ((expressions.y52d - expressions.y53d)*(mouse.x - expressions.x53d) + (expressions.x53d - expressions.x52d)*(mouse.y - expressions.y53d)) / ((expressions.y52d - expressions.y53d)*(expressions.x51d - expressions.x53d)+(expressions.x53d - expressions.x52d)*
+(expressions.y51d - expressions.y53d))
+/ b5d = ((expressions.y53d - expressions.y51d)*(mouse.x - expressions.x53d) + (expressions.x51d - expressions.x53d)*(mouse.y - expressions.y53d)) / ((expressions.y52d - expressions.y53d)*(expressions.x51d - expressions.x53d)+(expressions.x53d - expressions.x52d)*
+(expressions.y51d - expressions.y53d))
 / c5d = 1 - expressions.a5d - expressions.b5d
 </expressions>
 
@@ -274,8 +286,10 @@ Remove the 'response/...' to make this script run on its own (if it is not an in
 / y62d = picture.response6d.top
 / x63d = picture.response6d.left
 / y63d = picture.response6d.bottom
-/ a6d = ((expressions.y62d - expressions.y63d)*(mouse.x - expressions.x63d) + (expressions.x63d - expressions.x62d)*(mouse.y - expressions.y63d)) / ((expressions.y62d - expressions.y63d)*(expressions.x61d - expressions.x63d)+(expressions.x63d - expressions.x62d)*(expressions.y61d - expressions.y63d))
-/ b6d = ((expressions.y63d - expressions.y61d)*(mouse.x - expressions.x63d) + (expressions.x61d - expressions.x63d)*(mouse.y - expressions.y63d)) / ((expressions.y62d - expressions.y63d)*(expressions.x61d - expressions.x63d)+(expressions.x63d - expressions.x62d)*(expressions.y61d - expressions.y63d))
+/ a6d = ((expressions.y62d - expressions.y63d)*(mouse.x - expressions.x63d) + (expressions.x63d - expressions.x62d)*(mouse.y - expressions.y63d)) / ((expressions.y62d - expressions.y63d)*(expressions.x61d - expressions.x63d)+(expressions.x63d - expressions.x62d)*
+(expressions.y61d - expressions.y63d))
+/ b6d = ((expressions.y63d - expressions.y61d)*(mouse.x - expressions.x63d) + (expressions.x61d - expressions.x63d)*(mouse.y - expressions.y63d)) / ((expressions.y62d - expressions.y63d)*(expressions.x61d - expressions.x63d)+(expressions.x63d - expressions.x62d)*
+(expressions.y61d - expressions.y63d))
 / c6d = 1 - expressions.a6d - expressions.b6d
 </expressions>
 
@@ -286,8 +300,10 @@ Remove the 'response/...' to make this script run on its own (if it is not an in
 / y72d = picture.response7d.bottom
 / x73d = picture.response7d.left
 / y73d = picture.response7d.bottom
-/ a7d = ((expressions.y72d - expressions.y73d)*(mouse.x - expressions.x73d) + (expressions.x73d - expressions.x72d)*(mouse.y - expressions.y73d)) / ((expressions.y72d - expressions.y73d)*(expressions.x71d - expressions.x73d)+(expressions.x73d - expressions.x72d)*(expressions.y71d - expressions.y73d))
-/ b7d = ((expressions.y73d - expressions.y71d)*(mouse.x - expressions.x73d) + (expressions.x71d - expressions.x73d)*(mouse.y - expressions.y73d)) / ((expressions.y72d - expressions.y73d)*(expressions.x71d - expressions.x73d)+(expressions.x73d - expressions.x72d)*(expressions.y71d - expressions.y73d))
+/ a7d = ((expressions.y72d - expressions.y73d)*(mouse.x - expressions.x73d) + (expressions.x73d - expressions.x72d)*(mouse.y - expressions.y73d)) / ((expressions.y72d - expressions.y73d)*(expressions.x71d - expressions.x73d)+(expressions.x73d - expressions.x72d)*
+(expressions.y71d - expressions.y73d))
+/ b7d = ((expressions.y73d - expressions.y71d)*(mouse.x - expressions.x73d) + (expressions.x71d - expressions.x73d)*(mouse.y - expressions.y73d)) / ((expressions.y72d - expressions.y73d)*(expressions.x71d - expressions.x73d)+(expressions.x73d - expressions.x72d)*
+(expressions.y71d - expressions.y73d))
 / c7d = 1 - expressions.a7d - expressions.b7d
 </expressions>
 
@@ -298,8 +314,10 @@ Remove the 'response/...' to make this script run on its own (if it is not an in
 / y82d = picture.response8d.top
 / x83d = picture.response8d.right
 / y83d = picture.response8d.bottom
-/ a8d = ((expressions.y82d - expressions.y83d)*(mouse.x - expressions.x83d) + (expressions.x83d - expressions.x82d)*(mouse.y - expressions.y83d)) / ((expressions.y82d - expressions.y83d)*(expressions.x81d - expressions.x83d)+(expressions.x83d - expressions.x82d)*(expressions.y81d - expressions.y83d))
-/ b8d = ((expressions.y83d - expressions.y81d)*(mouse.x - expressions.x83d) + (expressions.x81d - expressions.x83d)*(mouse.y - expressions.y83d)) / ((expressions.y82d - expressions.y83d)*(expressions.x81d - expressions.x83d)+(expressions.x83d - expressions.x82d)*(expressions.y81d - expressions.y83d))
+/ a8d = ((expressions.y82d - expressions.y83d)*(mouse.x - expressions.x83d) + (expressions.x83d - expressions.x82d)*(mouse.y - expressions.y83d)) / ((expressions.y82d - expressions.y83d)*(expressions.x81d - expressions.x83d)+(expressions.x83d - expressions.x82d)*
+(expressions.y81d - expressions.y83d))
+/ b8d = ((expressions.y83d - expressions.y81d)*(mouse.x - expressions.x83d) + (expressions.x81d - expressions.x83d)*(mouse.y - expressions.y83d)) / ((expressions.y82d - expressions.y83d)*(expressions.x81d - expressions.x83d)+(expressions.x83d - expressions.x82d)*
+(expressions.y81d - expressions.y83d))
 / c8d = 1 - expressions.a8d - expressions.b8d
 </expressions>
 
@@ -348,7 +366,7 @@ values.response = -1; true; values.similarity = "0";
 / isvalidresponse = [if (trial.response_options_practice.response == "response_blank") false; else
 expressions.validresponse_disks
 ]
-/ recorddata = false
+/ recorddata = true
 / ontrialend = [
 	values.response_time = trial.response_options_practice.latency;
 ]
@@ -359,12 +377,16 @@ expressions.validresponse_disks
 
 
 <trial centermouse_practice>
-/ stimulusframes = [1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
-centersquare,notice_centre_mouse,process_notice_practice]
+/ ontrialbegin = [
+	shape.centersquare.color = list.record_colour.nextvalue
+]
+/ stimulusframes = [1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, 
+centersquare, notice_centre_mouse,process_notice_practice]
 / inputdevice = mouse
-/ recorddata = true
+/ recorddata = false
 / validresponse = (centersquare)
 </trial>
+
 
 *********** main version *******************
 
@@ -378,7 +400,7 @@ centersquare,notice_centre_mouse,process_notice_practice]
 / isvalidresponse = [if (trial.response_options.response == "response_blank") false; else
 expressions.validresponse_disks
 ]
-/ recorddata = false
+/ recorddata = true
 / ontrialend = [
 	values.response_time = trial.response_options.latency;
 ]
@@ -389,10 +411,13 @@ expressions.validresponse_disks
 
 
 <trial centermouse>
+/ ontrialbegin = [
+	shape.centersquare.color = list.record_colour.nextvalue
+]
 / stimulusframes = [1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
 centersquare,notice_centre_mouse,process_notice]
 / inputdevice = mouse
-/ recorddata = true
+/ recorddata = false
 / validresponse = (centersquare)
 </trial>
 

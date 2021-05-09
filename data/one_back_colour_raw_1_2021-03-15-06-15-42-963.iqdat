@@ -1,4 +1,0 @@
-build	date	time	subject	group	blockcode	blocknum	trialcode	trialnum	stimulusonset1	response	latency	similarity	stimuluscolour	response_time	stimulusSOA	est_stimulusSOA
-6.4.0	2021-03-15	17:15:42	1	1	practice_block	1	practice_start	1	7	0	250	-9	shape.circle_5	0	250	1251
-6.4.0	2021-03-15	17:15:42	1	1	practice_block	1	practice	2	1	0	250	-9	shape.circle_8	0	250	1251
-6.4.0	2021-03-15	17:15:42	1	1	practice_block	1	response_options_practice	3	4	Ctrl+'Q'	773	-9	shape.circle_8	773	250	1251
