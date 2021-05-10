@@ -399,7 +399,7 @@ Trials
 	 trial.practice_start.insertstimulustime(port.colour7_trigger, 1000);
 	} else if (shape.circle_2.color == values.colour8){
 	 trial.practice_start.insertstimulustime(port.colour8_trigger, 1000);
-	} else {trial.practice_start.insertstimulustime(colour9_trigger, 1000);}		
+	} else {trial.practice_start.insertstimulustime(port.colour9_trigger, 1000);}		
 ]
 / ontrialend = [
 	 list.record_colour.appenditem(shape.circle_2.color);
