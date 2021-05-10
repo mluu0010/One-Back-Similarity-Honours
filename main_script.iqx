@@ -196,11 +196,29 @@ Trials
 <trial practice_start>
 / timeout = values.fixationduration + 250 
 / stimulustimes = [
-0 = fixation_cross; 
+0 = fixation_cross, fixation_trigger; 
 1000 = shape.circle_1
 ]
 / ontrialbegin = [
     shape.circle_1.color = list.colours.nextvalue;
+	
+	if(shape.circle_1.color == #ff0000){
+	 trial.practice_start.insertstimulustime(colour1_trigger, 1000);
+	} else if (shape.circle_1.color == #ffaa00){
+	 trial.practice_start.insertstimulustime(colour2_trigger, 1000);
+	} else if (shape.circle_1.color == #aaff00){
+	 trial.practice_start.insertstimulustime(colour3_trigger, 1000);
+	} else if (shape.circle_1.color == #00ff00){
+	 trial.practice_start.insertstimulustime(colour4_trigger, 1000);
+	} else if (shape.circle_1.color == #00ffa9){
+	 trial.practice_start.insertstimulustime(colour5_trigger, 1000);
+	} else if (shape.circle_1.color == #00a9ff){
+	 trial.practice_start.insertstimulustime(colour6_trigger, 1000);
+	} else if (shape.circle_1.color == #0000ff){
+	 trial.practice_start.insertstimulustime(colour7_trigger, 1000);
+	} else if (shape.circle_1.color == #aa00ff){
+	 trial.practice_start.insertstimulustime(colour8_trigger, 1000);
+	} else {trial.practice_start.insertstimulustime(colour9_trigger, 1000);}
 ]
 / ontrialend = [
     values.previous_colour = list.colours.currentvalue
@@ -211,7 +229,7 @@ Trials
 <trial practice_1>
 / timeout = values.fixationduration + 250
 / stimulustimes = [
-0 = fixation_cross;
+0 = fixation_cross, fixation_trigger;
 1000 = shape.circle_1
 ]
 / ontrialbegin = [
@@ -219,7 +237,25 @@ Trials
     expressions.colour_select;
 	if(block.practice_block.trialcount == 1){
 		values.previous_colour = list.colours.currentvalue;} 
-	else {values.previous_colour = list.record_colour.currentvalue;}
+	else {values.previous_colour = list.record_colour.currentvalue;
+};	
+	if(shape.circle_1.color == values.colour1){
+	 trial.practice_start.insertstimulustime(colour1_trigger, 1000);
+	} else if (shape.circle_1.color == values.colour2){
+	 trial.practice_start.insertstimulustime(colour2_trigger, 1000);
+	} else if (shape.circle_1.color == values.colour3){
+	 trial.practice_start.insertstimulustime(colour3_trigger, 1000);
+	} else if (shape.circle_1.color == values.colour4){
+	 trial.practice_start.insertstimulustime(colour4_trigger, 1000);
+	} else if (shape.circle_1.color == values.colour5){
+	 trial.practice_start.insertstimulustime(colour5_trigger, 1000);
+	} else if (shape.circle_1.color == values.colour6){
+	 trial.practice_start.insertstimulustime(colour6_trigger, 1000);
+	} else if (shape.circle_1.color == values.colour7){
+	 trial.practice_start.insertstimulustime(colour7_trigger, 1000);
+	} else if (shape.circle_1.color == values.colour8){
+	 trial.practice_start.insertstimulustime(colour8_trigger, 1000);
+	} else {trial.practice_start.insertstimulustime(colour9_trigger, 1000);}
 ]
 / ontrialend = [
 	 list.record_colour.appenditem(shape.circle_1.color);
@@ -231,13 +267,31 @@ Trials
 
 <trial practice_2>
 / stimulustimes = [
-0 = fixation_cross;
+0 = fixation_cross, fixation_trigger;
 1000 = shape.circle_2]
 / timeout = values.fixationduration + 250
 / ontrialbegin = [
 	values.trial_number_practice += 1;
 	values.previous_colour = list.record_colour.currentvalue;
-	shape.circle_2.color = list.record_pairs.nextvalue  
+	shape.circle_2.color = list.record_pairs.nextvalue;
+	
+	if(shape.circle_2.color == values.colour1){
+	 trial.practice_start.insertstimulustime(colour1_trigger, 1000);
+	} else if (shape.circle_2.color == values.colour2){
+	 trial.practice_start.insertstimulustime(colour2_trigger, 1000);
+	} else if (shape.circle_2.color == values.colour3){
+	 trial.practice_start.insertstimulustime(colour3_trigger, 1000);
+	} else if (shape.circle_2.color == values.colour4){
+	 trial.practice_start.insertstimulustime(colour4_trigger, 1000);
+	} else if (shape.circle_2.color == values.colour5){
+	 trial.practice_start.insertstimulustime(colour5_trigger, 1000);
+	} else if (shape.circle_2.color == values.colour6){
+	 trial.practice_start.insertstimulustime(colour6_trigger, 1000);
+	} else if (shape.circle_2.color == values.colour7){
+	 trial.practice_start.insertstimulustime(colour7_trigger, 1000);
+	} else if (shape.circle_2.color == values.colour8){
+	 trial.practice_start.insertstimulustime(colour8_trigger, 1000);
+	} else {trial.practice_start.insertstimulustime(colour9_trigger, 1000);}	
 ]
 / ontrialend = [
 	 list.record_colour.appenditem(shape.circle_2.color);
@@ -250,11 +304,29 @@ Trials
 <trial actual_start>
 / timeout = values.fixationduration + 250 
 / stimulustimes = [
-0 = fixation_cross; 
+0 = fixation_cross, fixation_trigger; 
 1000 = shape.circle_1
 ]
 / ontrialbegin = [
     shape.circle_1.color = list.colours.nextvalue;
+	
+	if(shape.circle_1.color == #ff0000){
+	 trial.practice_start.insertstimulustime(colour1_trigger, 1000);
+	} else if (shape.circle_1.color == #ffaa00){
+	 trial.practice_start.insertstimulustime(colour2_trigger, 1000);
+	} else if (shape.circle_1.color == #aaff00){
+	 trial.practice_start.insertstimulustime(colour3_trigger, 1000);
+	} else if (shape.circle_1.color == #00ff00){
+	 trial.practice_start.insertstimulustime(colour4_trigger, 1000);
+	} else if (shape.circle_1.color == #00ffa9){
+	 trial.practice_start.insertstimulustime(colour5_trigger, 1000);
+	} else if (shape.circle_1.color == #00a9ff){
+	 trial.practice_start.insertstimulustime(colour6_trigger, 1000);
+	} else if (shape.circle_1.color == #0000ff){
+	 trial.practice_start.insertstimulustime(colour7_trigger, 1000);
+	} else if (shape.circle_1.color == #aa00ff){
+	 trial.practice_start.insertstimulustime(colour8_trigger, 1000);
+	} else {trial.practice_start.insertstimulustime(colour9_trigger, 1000);}
 ]
 / ontrialend = [
     values.previous_colour = list.colours.currentvalue
@@ -265,7 +337,7 @@ Trials
 <trial actual_1>
 / timeout = values.fixationduration + 250
 / stimulustimes = [
-0 = fixation_cross;
+0 = fixation_cross, fixation_trigger;
 1000 = shape.circle_1
 ]
 / ontrialbegin = [
@@ -273,7 +345,25 @@ Trials
     expressions.colour_select;
 	if(block.actual_block.trialcount == 1){
 		values.previous_colour = list.colours.currentvalue;} 
-	else {values.previous_colour = list.record_colour.currentvalue;}
+	else {values.previous_colour = list.record_colour.currentvalue;
+};	
+		if(shape.circle_1.color == values.colour1){
+	 trial.practice_start.insertstimulustime(colour1_trigger, 1000);
+	} else if (shape.circle_1.color == values.colour2){
+	 trial.practice_start.insertstimulustime(colour2_trigger, 1000);
+	} else if (shape.circle_1.color == values.colour3){
+	 trial.practice_start.insertstimulustime(colour3_trigger, 1000);
+	} else if (shape.circle_1.color == values.colour4){
+	 trial.practice_start.insertstimulustime(colour4_trigger, 1000);
+	} else if (shape.circle_1.color == values.colour5){
+	 trial.practice_start.insertstimulustime(colour5_trigger, 1000);
+	} else if (shape.circle_1.color == values.colour6){
+	 trial.practice_start.insertstimulustime(colour6_trigger, 1000);
+	} else if (shape.circle_1.color == values.colour7){
+	 trial.practice_start.insertstimulustime(colour7_trigger, 1000);
+	} else if (shape.circle_1.color == values.colour8){
+	 trial.practice_start.insertstimulustime(colour8_trigger, 1000);
+	} else {trial.practice_start.insertstimulustime(colour9_trigger, 1000);}
 ]
 / ontrialend = [
 	 list.record_colour.appenditem(shape.circle_1.color);
@@ -285,13 +375,31 @@ Trials
 
 <trial actual_2>
 / stimulustimes = [
-0 = fixation_cross;
+0 = fixation_cross, fixation_trigger;
 1000 = shape.circle_2]
 / timeout = values.fixationduration + 250
 / ontrialbegin = [
 	values.trial_number += 1;
 	values.previous_colour = list.record_colour.currentvalue;
-	shape.circle_2.color = list.record_pairs.nextvalue  
+	shape.circle_2.color = list.record_pairs.nextvalue;
+
+	if(shape.circle_2.color == values.colour1){
+	 trial.practice_start.insertstimulustime(colour1_trigger, 1000);
+	} else if (shape.circle_2.color == values.colour2){
+	 trial.practice_start.insertstimulustime(colour2_trigger, 1000);
+	} else if (shape.circle_2.color == values.colour3){
+	 trial.practice_start.insertstimulustime(colour3_trigger, 1000);
+	} else if (shape.circle_2.color == values.colour4){
+	 trial.practice_start.insertstimulustime(colour4_trigger, 1000);
+	} else if (shape.circle_2.color == values.colour5){
+	 trial.practice_start.insertstimulustime(colour5_trigger, 1000);
+	} else if (shape.circle_2.color == values.colour6){
+	 trial.practice_start.insertstimulustime(colour6_trigger, 1000);
+	} else if (shape.circle_2.color == values.colour7){
+	 trial.practice_start.insertstimulustime(colour7_trigger, 1000);
+	} else if (shape.circle_2.color == values.colour8){
+	 trial.practice_start.insertstimulustime(colour8_trigger, 1000);
+	} else {trial.practice_start.insertstimulustime(colour9_trigger, 1000);}		
 ]
 / ontrialend = [
 	 list.record_colour.appenditem(shape.circle_2.color);
