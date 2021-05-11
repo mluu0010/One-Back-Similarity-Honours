@@ -22,7 +22,7 @@ Port Stimuli
 ********************************************************************************
 ********************************************************************************
 
-8-bit values for each stimulus type
+8-bit values for onset of each stimulus type
 Colour 1/#ff0000 = 1
 Colour 2/#ffaa00 = 2
 Colour 3/#aaff00 = 3
@@ -38,73 +38,73 @@ Centre square = 12
 
 
 <port fixation_trigger>
-/ port = LPT1
+/ port = LPT
 / subport = Data
 / items = ("00001010")
 </port>
 
 <port response_trigger>
-/ port = LPT1
+/ port = LPT
 / subport = Data
 / items = ("00001011")
 </port>
 
 <port centresquare_trigger>
-/ port = LPT1
+/ port = LPT
 / subport = Data
 / items = ("00001100")
 </port>
 
 <port colour1_trigger>
-/ port = LPT1
+/ port = LPT
 / subport = Data
 / items = ("00000001")
 </port>
 
 <port colour2_trigger>
-/ port = LPT1
+/ port = LPT
 / subport = Data
 / items = ("00000010")
 </port>
 
 <port colour3_trigger>
-/ port = LPT1
+/ port = LPT
 / subport = Data
 / items = ("00000011")
 </port>
 
 <port colour4_trigger>
-/ port = LPT1
+/ port = LPT
 / subport = Data
 / items = ("00000100")
 </port>
 
 <port colour5_trigger>
-/ port = LPT1
+/ port = LPT
 / subport = Data
 / items = ("00000101")
 </port>
 
 <port colour6_trigger>
-/ port = LPT1
+/ port = LPT
 / subport = Data
 / items = ("00000110")
 </port>
 
 <port colour7_trigger>
-/ port = LPT1
+/ port = LPT
 / subport = Data
 / items = ("00000111")
 </port>
 
 <port colour8_trigger>
-/ port = LPT1
+/ port = LPT
 / subport = Data
 / items = ("00001000")
 </port>
 
 <port colour9_trigger>
-/ port = LPT1
+/ port = LPT
 / subport = Data
 / items = ("00001001")
 </port>
