@@ -32,7 +32,7 @@ Initialised Constants
 /trial_number = 0
 /trial_number_practice = 0
 /number_of_patch_practice = 10
-/number_of_patch = 324
+/number_of_patch = 1296
 /colour1 = #ff0000
 /colour2 = #ffaa00
 /colour3 = #aaff00
@@ -454,7 +454,7 @@ Blocks
 
 <block actual_block>
 / preinstructions = (trial_instructions)
-/ trials = [1=actual_start; 2-163 = sequence(actual_1, actual_2)]
+/ trials = [1=actual_start; 2-649 = sequence(actual_1, actual_2)]
 </block>
 
 <block demographics>
