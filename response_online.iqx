@@ -10,7 +10,7 @@ Created: 11/03/2021
 *******************************************************************************************************************
 *******************************************************************************************************************
 <include >
-/file = "main_script.iqx"
+/file = "main_script_online.iqx"
 </include>
 *******************************************************************************************************************
 *******************************************************************************************************************
@@ -73,7 +73,7 @@ Created: 11/03/2021
 </shape>
 
 <text notice_centre_mouse>
-/ items = ("Please click the center square to continue")
+/ items = ("Please click the middle square to continue")
 / fontstyle = ("Arial", 3%, true)
 / position = (50%,80%)
 / txbgcolor = (127,127,127)
@@ -396,7 +396,7 @@ values.response = -1; true; values.similarity = "0";
 <trial response_options_practice>
 / stimulusframes = [
 	1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
- during_after2_response_instructions, response_trigger]
+ during_after2_response_instructions]
 / validresponse = (response_blank, response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d)
 / inputdevice = mouse
 / isvalidresponse = [if (trial.response_options_practice.response == "response_blank") false; else
@@ -425,7 +425,7 @@ expressions.validresponse_disks
 	shape.centersquare.color = list.record_colour.nextvalue
 ]
 / stimulusframes = [1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, 
-centersquare, notice_centre_mouse,process_notice_practice, centresquare_trigger, colour_reminder]
+centersquare, notice_centre_mouse, process_notice_practice, colour_reminder]
 / inputdevice = mouse
 / recorddata = false
 / validresponse = (centersquare)
@@ -437,7 +437,7 @@ centersquare, notice_centre_mouse,process_notice_practice, centresquare_trigger,
 <trial response_options>
 / stimulusframes = [
 	1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
- during_after2_response_instructions, response_trigger]
+ during_after2_response_instructions]
 / validresponse = (response_blank, response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d)
 / inputdevice = mouse
 / isvalidresponse = [if (trial.response_options.response == "response_blank") false; else
@@ -458,7 +458,7 @@ expressions.validresponse_disks
 	shape.centersquare.color = list.record_colour.nextvalue
 ]
 / stimulusframes = [1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
-centersquare,notice_centre_mouse,process_notice, centresquare_trigger, colour_reminder]
+centersquare,notice_centre_mouse,process_notice, colour_reminder]
 / inputdevice = mouse
 / recorddata = false
 / validresponse = (centersquare)
