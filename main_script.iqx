@@ -43,7 +43,6 @@ Initialised Constants
 /colour8 = #aa00ff
 /colour9 = #ff00aa
 /completed = 0
-/completion_code = ""
 </values>
 
 ********************************************************************************
@@ -77,49 +76,46 @@ latency: 						the response latency (in ms)
 *************
 
 <data>
-/file = "one_back_colour_pilot.iqdat"
+/file = "similarity_EEG.iqdat"
 /columns = [build, date, time, subject, group, blockcode, blocknum, trialcode, response, latency, values.trial_number, values.trial_number_practice, values.previous_colour, values.current_colour, values.similarity,
-values.response_time, values.completion_code, values.canvaswidth, values.canvasheight]
+values.response_time]
 /separatefiles = true
 </data>
 
 <summarydata>
-/file = "one_back_colour_pilot.iqdat"
+/file = "similarity_EEG.iqdat"
 /columns = (script.startdate, script.starttime, script.subjectid, script.groupid, script.elapsedtime, computer.platform, computer.os, computer.countrycode, values.completed)
 / separatefiles = true
 </summarydata>
 ********************************************************************************
 ********************************************************************************
-Consent, Instructions, Complete, Survey Pages 
+Instructions, Complete, Survey Pages 
 ********************************************************************************
 ********************************************************************************
 <htmlpage overview>
 / file = "experiment_overview.html"
 </htmlpage>
 
-<htmlpage consent>
-/ file = "consent_form.html"
-</htmlpage>
 
 <htmlpage complete>
 / file = "complete.html"
 </htmlpage>
 
+
 <htmlpage practice_instructions>
 / file = "practice_instructions_page.html"
 </htmlpage>
+
 
 <htmlpage trial_instructions>
 / file = "trial_instructions_page.html"
 </htmlpage>
 
+
 <htmlpage finish_block>
 / file = "finish_block.html"
 </htmlpage>
 
-<include>
-/ file = "calibration.iqx"
-</include>
 
 <include>
 /file = "include_participant_demographics.iqx"
@@ -127,7 +123,7 @@ Consent, Instructions, Complete, Survey Pages
 
 ********************************************************************************
 ********************************************************************************
-Stimuli
+Stimuli and Lists 
 ********************************************************************************
 ********************************************************************************
 
@@ -181,29 +177,10 @@ values.colour6, values.colour7, values.colour8, values.colour9)
 / selectionrate = trial
 </counter>
 
-<text completion_code>
-/items = ("Your Amazon Mechanical Turk Code: <%values.completion_code%>")
-/position = (50, 20)
-/halign = center
-/ valign = center
-/ hjustify = center
-/ vjustify = center
-/ txbgcolor = (127, 127, 127)
-/ fontstyle = ("Arial", 4.13%, false, false, false, false, 5, 0)
-/ txcolor = (0, 0, 0)
-</text>
-
-<text completion_code_instruction>
-/items = ("Please record/copy this completion code and paste it back to the Amazon Mechnical Turk Page.~nThank you again for participating in our study!~n~nPress <space> to end this experiment.")
-/position = (50, 40)
-/ txbgcolor = (127, 127, 127)
-/ fontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
-/ txcolor = (255, 255, 255)
-</text>
 
 ********************************************************************************
 ********************************************************************************
-Trials
+Practice Trials
 ********************************************************************************
 ********************************************************************************
 <trial practice_start>
@@ -278,6 +255,11 @@ Trials
 / recorddata = false
 </trial> 
 
+********************************************************************************
+********************************************************************************
+Firstpass Trials
+********************************************************************************
+********************************************************************************
 
 <trial firstpass_start>
 / timeout = values.fixationduration + 250 
@@ -388,6 +370,11 @@ Trials
 / recorddata = false
 </trial> 
 
+********************************************************************************
+********************************************************************************
+Secondpass Trials
+********************************************************************************
+********************************************************************************
 <trial secondpass_start>
 / timeout = values.fixationduration + 250 
 / stimulustimes = [
@@ -496,6 +483,12 @@ Trials
 / recorddata = false
 </trial> 
 
+********************************************************************************
+********************************************************************************
+Demographics Survey
+********************************************************************************
+********************************************************************************
+
 <surveypage demographic_page>
 / caption = "You have now finished the trials. Before you finish the experiment, we would like you to complete the following questions please."
 / fontstyle =  ("Arial", 3%)
@@ -509,12 +502,6 @@ Trials
 / finishlabel = "Complete"
 </surveypage>
 
-<trial mturk_completion_code>
-/ ontrialbegin = [values.completion_code=ipart(rand(1,99999))]
-/ stimulustimes = [0=completion_code, completion_code_instruction]
-/ inputdevice = keyboard
-/ correctresponse = (" ")
-</trial>
 
 ********************************************************************************
 ********************************************************************************
@@ -525,19 +512,17 @@ Blocks
 / preinstructions = (overview)
 </block>
 
-<block consent>
-/ preinstructions = (consent)
+
+<block trial_instructions>
+/ preinstructions = (trial_instructions)
 </block>
 
-<block calibration>
-/ trials = [1 = Calibration_instruction_page1]
-/ screencolor = white
-</block>
 
 <block practice_block>
 / preinstructions = (practice_instructions)
 / trials = [1=practice_start; 2-11 = practice_1]
 </block>
+
 
 <block firstpass>
 / trials = [1=firstpass_start; 2-82 = sequence(firstpass_1, firstpass_2)]
@@ -545,8 +530,10 @@ Blocks
     values.trial_number = 0]
 </block>
 
+
 <block secondpass>
 / preinstructions = (finish_block)
+/ postinstructions = (finish_block)
 / onblockbegin = [
 	values.trial_number = 0]
 / trials = [1=secondpass_start; 2-82 = sequence(secondpass_1, secondpass_2)]
@@ -554,17 +541,18 @@ Blocks
     item.record_sequence.clearitems();]
 </block>
 
+
 <block demographics>
 /trials = [1=demographic_page]	
 </block>
 
-<block completion_code>
-/trials = [1=mturk_completion_code]
-/ preinstructions = (complete)
-</block>
-
+********************************************************************************
+********************************************************************************
+Experiment 
+********************************************************************************
+********************************************************************************
 <expt>
 /onexptend = [values.completed = 1]
-/blocks = [ 1=intro; 2=consent; 3=calibration; 4=practice_block; 5-9=sequence(firstpass, secondpass); 10=demographics; 11=completion_code]
+/blocks = [ 1=intro; 2=practice_block; 3=trial_instructions; 4-8=sequence(firstpass, secondpass); 9=demographics]
 </expt>
 

@@ -386,6 +386,10 @@ Blocks
 / preinstructions = (consent)
 </block>
 
+<block trial_instructions>
+/ preinstructions = (trial_instructions)
+</block>
+
 <block calibration>
 / trials = [1 = Calibration_instruction_page1]
 / screencolor = white
@@ -422,6 +426,7 @@ Blocks
 
 <expt>
 /onexptend = [values.completed = 1]
-/blocks = [ 1=intro; 2=consent; 3=calibration; 4=practice_block; 5-9=sequence(firstpass, secondpass); 10=demographics; 11=completion_code]
+/blocks = [ 1=intro; 2=consent; 3=calibration; 4=practice_block; 5=trial_instructions; 6=sequence(firstpass, secondpass); 
+7=demographics; 8=completion_code]
 </expt>
 

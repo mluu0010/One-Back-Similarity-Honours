@@ -73,7 +73,7 @@ Created: 11/03/2021
 </shape>
 
 <text notice_centre_mouse>
-/ items = ("Please click the center square to continue")
+/ items = ("Please click the middle square to continue")
 / fontstyle = ("Arial", 3%, true)
 / position = (50%,80%)
 / txbgcolor = (127,127,127)
