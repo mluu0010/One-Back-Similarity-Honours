@@ -208,10 +208,10 @@ Trials
 ********************************************************************************
 
 <trial practice_start>
-/ timeout = values.fixationduration + 250 
+/ timeout = values.timeout
 / stimulustimes = [
 0 = fixation_cross; 
-1000 = shape.circle_1
+1000 = shape.circle_1;
 ]
 / ontrialbegin = [
     shape.circle_1.color = list.colours.nextvalue;
@@ -223,10 +223,10 @@ Trials
 </trial>
 
 <trial practice_1>
-/ timeout = values.fixationduration + 250
+/ timeout = values.timeout
 / stimulustimes = [
 0 = fixation_cross;
-1000 = shape.circle_1
+1000 = shape.circle_1;
 ]
 / ontrialbegin = [
 	values.trial_number_practice += 1;
@@ -245,10 +245,10 @@ Trials
 
 
 <trial firstpass_start>
-/ timeout = values.fixationduration + 250 
+/ timeout = values.timeout
 / stimulustimes = [
 0 = fixation_cross; 
-1000 = shape.circle_1
+1000 = shape.circle_1;
 ]
 / ontrialbegin = [
     shape.circle_1.color = list.colours.nextvalue;
@@ -261,10 +261,10 @@ Trials
 </trial>
 
 <trial firstpass_1>
-/ timeout = values.fixationduration + 250
+/ timeout = values.timeout
 / stimulustimes = [
 0 = fixation_cross;
-1000 = shape.circle_1
+1000 = shape.circle_1;
 ]
 / ontrialbegin = [
 	values.trial_number += 1;
@@ -284,8 +284,9 @@ Trials
 <trial firstpass_2>
 / stimulustimes = [
 0 = fixation_cross;
-1000 = shape.circle_2]
-/ timeout = values.fixationduration + 250
+1000 = shape.circle_2;
+]
+/ timeout = values.timeout
 / ontrialbegin = [
 	values.trial_number += 1;
 	values.previous_colour = list.record_colour.currentvalue;
@@ -300,10 +301,10 @@ Trials
 </trial> 
 
 <trial secondpass_start>
-/ timeout = values.fixationduration + 250 
+/ timeout = values.timeout
 / stimulustimes = [
 0 = fixation_cross; 
-1000 = shape.circle_1
+1000 = shape.circle_1;
 ]
 / ontrialbegin = [
     shape.circle_1.color = list.record_start_colour.nextvalue;
@@ -315,10 +316,10 @@ Trials
 </trial>
 
 <trial secondpass_1>
-/ timeout = values.fixationduration + 250
+/ timeout = values.timeout
 / stimulustimes = [
 0 = fixation_cross;
-1000 = shape.circle_1
+1000 = shape.circle_1;
 ]
 / ontrialbegin = [
 	values.trial_number += 1;
@@ -338,8 +339,9 @@ Trials
 <trial secondpass_2>
 / stimulustimes = [
 0 = fixation_cross;
-1000 = shape.circle_2]
-/ timeout = values.fixationduration + 250
+1000 = shape.circle_2;
+]
+/ timeout = values.timeout
 / ontrialbegin = [
 	values.trial_number += 1;
 	values.previous_colour = list.record_colour.currentvalue;

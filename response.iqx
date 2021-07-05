@@ -422,10 +422,26 @@ expressions.validresponse_disks
 
 <trial centermouse_practice>
 / ontrialbegin = [
-	shape.centersquare.color = list.record_colour.nextvalue
+	shape.centersquare.color = list.record_colour.nextvalue;
+	
+	if(trial.response_options_practice.response == response8d){
+		trial.centermouse_practice.insertstimulusframe(port.similarity_response_0, 1);
+	} else if(trial.response_options_practice.response == response7d){
+		trial.centermouse_practice.insertstimulusframe(port.similarity_response_1, 1);
+	} else if(trial.response_options_practice.response == response6d){
+		trial.centermouse_practice.insertstimulusframe(port.similarity_response_2, 1);
+	} else if(trial.response_options_practice.response == response5d){
+		trial.centermouse_practice.insertstimulusframe(port.similarity_response_3, 1);
+	} else if(trial.response_options_practice.response == response4d){
+		trial.centermouse_practice.insertstimulusframe(port.similarity_response_4, 1);
+	} else if(trial.response_options_practice.response == response3d){
+		trial.centermouse_practice.insertstimulusframe(port.similarity_response_5, 1);
+	} else if(trial.response_options_practice.response == response2d){
+		trial.centermouse_practice.insertstimulusframe(port.similarity_response_6, 1);
+	} else {trial.centermouse_practice.insertstimulusframe(port.similarity_response_7, 1);}
 ]
 / stimulusframes = [1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, 
-centersquare, notice_centre_mouse,process_notice_practice, centresquare_trigger, colour_reminder]
+centersquare, notice_centre_mouse,process_notice_practice, colour_reminder]
 / inputdevice = mouse
 / recorddata = false
 / validresponse = (centersquare)
@@ -455,10 +471,26 @@ expressions.validresponse_disks
 
 <trial centermouse>
 / ontrialbegin = [
-	shape.centersquare.color = list.record_colour.nextvalue
+	shape.centersquare.color = list.record_colour.nextvalue;
+	
+		if(trial.response_options.response == response8d){
+		trial.centermouse.insertstimulusframe(port.similarity_response_0, 1);
+	} else if(trial.response_options.response == response7d){
+		trial.centermouse.insertstimulusframe(port.similarity_response_1, 1);
+	} else if(trial.response_options.response == response6d){
+		trial.centermouse.insertstimulusframe(port.similarity_response_2, 1);
+	} else if(trial.response_options.response == response5d){
+		trial.centermouse.insertstimulusframe(port.similarity_response_3, 1);
+	} else if(trial.response_options.response == response4d){
+		trial.centermouse.insertstimulusframe(port.similarity_response_4, 1);
+	} else if(trial.response_options.response == response3d){
+		trial.centermouse.insertstimulusframe(port.similarity_response_5, 1);
+	} else if(trial.response_options.response == response2d){
+		trial.centermouse_practice.insertstimulusframe(port.similarity_response_6, 1);
+	} else {trial.centermouse.insertstimulusframe(port.similarity_response_7, 1);}
 ]
 / stimulusframes = [1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
-centersquare,notice_centre_mouse,process_notice, centresquare_trigger, colour_reminder]
+centersquare,notice_centre_mouse,process_notice, colour_reminder]
 / inputdevice = mouse
 / recorddata = false
 / validresponse = (centersquare)

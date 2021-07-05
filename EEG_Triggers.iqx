@@ -34,8 +34,14 @@ Colour 8/#aa00ff = 8
 Colour 9/#ff00aa = 9
 Fixation = 10 
 Response screen = 11
-Centre square = 12
-
+Similarity response 0 = 12
+Similarity response 1 = 13
+Similarity response 2 = 14
+Similarity response 3 = 15
+Similarity response 4 = 16
+Similarity response 5 = 17
+Similarity response 6 = 18
+Similarity response 7 = 19
 
 <port fixation_trigger>
 / port = LPT
@@ -49,10 +55,52 @@ Centre square = 12
 / items = ("00001011")
 </port>
 
-<port centresquare_trigger>
+<port similarity_response_0>
 / port = LPT
 / subport = Data
 / items = ("00001100")
+</port>
+
+<port similarity_response_1>
+/ port = LPT
+/ subport = Data
+/ items = ("00001101")
+</port>
+
+<port similarity_response_2>
+/ port = LPT
+/ subport = Data
+/ items = ("00001110")
+</port>
+
+<port similarity_response_3>
+/ port = LPT
+/ subport = Data
+/ items = ("00001111")
+</port>
+
+<port similarity_response_4>
+/ port = LPT
+/ subport = Data
+/ items = ("00010000")
+</port>
+
+<port similarity_response_5>
+/ port = LPT
+/ subport = Data
+/ items = ("00010001")
+</port>
+
+<port similarity_response_6>
+/ port = LPT
+/ subport = Data
+/ items = ("00010010")
+</port>
+
+<port similarity_response_7>
+/ port = LPT
+/ subport = Data
+/ items = ("00010011")
 </port>
 
 <port colour1_trigger>
