@@ -413,18 +413,8 @@ expressions.validresponse_disks
 / recorddata = true
 / ontrialend = [
 	values.response_time = trial.response_options_practice.latency;
-]
-/ branch = [
-	trial.centermouse_practice
-]
-</trial>
-
-
-<trial centermouse_practice>
-/ ontrialbegin = [
-	shape.centersquare.color = list.record_colour.nextvalue;
 	
-	if(values.similarity == 0){
+		if(values.similarity == 0){
 		trial.centermouse_practice.insertstimulusframe(port.similarity_response_0, 1);
 	} else if(values.similarity == 1){
 		trial.centermouse_practice.insertstimulusframe(port.similarity_response_1, 1);
@@ -439,6 +429,16 @@ expressions.validresponse_disks
 	} else if(values.similarity == 6){
 		trial.centermouse_practice.insertstimulusframe(port.similarity_response_6, 1);
 	} else {trial.centermouse_practice.insertstimulusframe(port.similarity_response_7, 1);}
+]
+/ branch = [
+	trial.centermouse_practice
+]
+</trial>
+
+
+<trial centermouse_practice>
+/ ontrialbegin = [
+	shape.centersquare.color = list.record_colour.nextvalue;
 ]
 / stimulusframes = [1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, 
 centersquare, notice_centre_mouse,process_notice_practice, colour_reminder]
@@ -462,18 +462,8 @@ expressions.validresponse_disks
 / recorddata = true
 / ontrialend = [
 	values.response_time = trial.response_options.latency;
-]
-/ branch = [
-	trial.centermouse
-]
-</trial>
-
-
-<trial centermouse>
-/ ontrialbegin = [
-	shape.centersquare.color = list.record_colour.nextvalue;
 	
-		if(values.similarity == 0){
+			if(values.similarity == 0){
 		trial.centermouse.insertstimulusframe(port.similarity_response_0, 1);
 	} else if(values.similarity == 1){
 		trial.centermouse.insertstimulusframe(port.similarity_response_1, 1);
@@ -488,6 +478,16 @@ expressions.validresponse_disks
 	} else if(values.similarity == 6){
 		trial.centermouse.insertstimulusframe(port.similarity_response_6, 1);
 	} else {trial.centermouse.insertstimulusframe(port.similarity_response_7, 1);}
+]
+/ branch = [
+	trial.centermouse
+]
+</trial>
+
+
+<trial centermouse>
+/ ontrialbegin = [
+	shape.centersquare.color = list.record_colour.nextvalue;
 ]
 / stimulusframes = [1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
 centersquare,notice_centre_mouse,process_notice, colour_reminder]
